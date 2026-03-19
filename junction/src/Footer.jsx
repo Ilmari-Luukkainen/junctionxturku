@@ -3,12 +3,18 @@ function Footer() {
     return(
         <div className="footer">
             <div className="footer-socials">
-                <a className="social-link" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                    <img src="/instagram-logo.png" alt="Instagram"/>
+                <a className="social-link icon-swap" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                    <span className="icon-wrap">
+                        <img className="icon icon-bw" src="/instagram-logo-grey.png" alt="Instagram" />
+                        <img className="icon icon-color" src="/instagram-logo.png" alt="" aria-hidden="true" />
+                    </span>
                     <span>Instagram</span>
                 </a>
-                <a className="social-link" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                    <img src="/linkedin-logo.png" alt="LinkedIn"/>
+                <a className="social-link icon-swap" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                    <span className="icon-wrap">
+                        <img className="icon icon-bw" src="/linkedin-logo-grey.png" alt="LinkedIn" />
+                        <img className="icon icon-color" src="/linkedin-logo.png" alt="" aria-hidden="true" />
+                    </span>
                     <span>LinkedIn</span>
                 </a>
             </div>
