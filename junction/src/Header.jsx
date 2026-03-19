@@ -1,21 +1,17 @@
 import { useEffect, useState } from "react";
 
-function Header() {
+function Header({ onNavigate }) {
   const [visible, setVisible] = useState(true);
-  let lastScrollY = 0;
   let timeout = null;
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-        setVisible(false);
+      setVisible(false);
 
       clearTimeout(timeout);
       timeout = setTimeout(() => {
         setVisible(true);
-      }, 500); 
-
-      lastScrollY = currentScrollY;
+      }, 500);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -28,6 +24,35 @@ function Header() {
   return (
     <header className={`header ${visible ? "show" : "hide"}`}>
       <h1>Mun header</h1>
+      <nav className="main-nav">
+        <a
+          href="/"
+          onClick={(event) => {
+            event.preventDefault();
+            onNavigate('/');
+          }}
+        >
+          Etusivu
+        </a>
+        <a
+          href="/about"
+          onClick={(event) => {
+            event.preventDefault();
+            onNavigate('/about');
+          }}
+        >
+          About
+        </a>
+        <a
+          href="/schedule"
+          onClick={(event) => {
+            event.preventDefault();
+            onNavigate('/schedule');
+          }}
+        >
+          Aikataulu
+        </a>
+      </nav>
     </header>
   );
 }
