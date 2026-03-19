@@ -190,7 +190,7 @@
   transition: transform 0.3s ease;
   z-index: 1000;
   background: var(--bg);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 0px solid var(--border);
   padding: 12px 20px;
   box-sizing: border-box;
 }

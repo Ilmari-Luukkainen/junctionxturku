@@ -3,12 +3,12 @@ import './App.css'
 import Header from './Header'
 
 const routes = {
-  '/': 'hero',
-  '/about': 'about',
-  '/schedule': 'schedule',
+  '/': 'homepage',
+  '/challenges': 'challenges',
+  '/edit': 'edit',
 }
 
-const resolvePath = (path) => routes[path] ?? 'hero'
+const resolvePath = (path) => routes[path] ?? 'homepage'
 
 function App() {
   const [activeSection, setActiveSection] = useState(() => resolvePath(location.pathname))
@@ -39,24 +39,24 @@ function App() {
     <>
       <Header onNavigate={navigateTo} />
       <main className="view-container">
-        {activeSection === 'hero' && (
-          <section id="hero">
+        {activeSection === 'homepage' && (
+          <section id="homepage">
             <h2>Etusivu</h2>
             <p>Tervetuloa Junction-sivulle.</p>
           </section>
         )}
 
-        {activeSection === 'about' && (
-          <section id="about">
-            <h2>About</h2>
-            <p>Tämä on SPA-esimerkki, jossa URL vaihtuu ilman uudelleenlatausta.</p>
+        {activeSection === 'challenges' && (
+          <section id="challenges">
+            <h2>Haasteet</h2>
+            <p>Täällä näkyy haasteet.</p>
           </section>
         )}
 
-        {activeSection === 'schedule' && (
-          <section id="schedule">
-            <h2>Aikataulu</h2>
-            <p>Täällä näkyy tapahtuman aikataulu.</p>
+        {activeSection === 'edit' && (
+          <section id="edit">
+            <h2>Muokkaa</h2>
+            <p>Täällä näkyy muokkausmahdollisuus.</p>
           </section>
         )}
       </main>

@@ -35,23 +35,15 @@ function Header({ onNavigate }) {
           Etusivu
         </a>
         <a
-          href="/about"
+          href="/Challenges"
           onClick={(event) => {
             event.preventDefault();
-            onNavigate('/about');
+            onNavigate('/challenges');
           }}
         >
-          About
+          Haasteet
         </a>
-        <a
-          href="/schedule"
-          onClick={(event) => {
-            event.preventDefault();
-            onNavigate('/schedule');
-          }}
-        >
-          Aikataulu
-        </a>
+        
       </nav>
     </header>
   );
