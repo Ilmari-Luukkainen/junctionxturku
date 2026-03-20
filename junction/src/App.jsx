@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import Header from './Header'
+import Partners from './components/partners'
 
 const routes = {
   '/': 'homepage',
@@ -59,8 +60,11 @@ function App() {
             <p>Täällä näkyy muokkausmahdollisuus.</p>
           </section>
         )}
-      </main>
+        </main>
+        <Partners /> 
+       
     </>
+    
     )
 }
 

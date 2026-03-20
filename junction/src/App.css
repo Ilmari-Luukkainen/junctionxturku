@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap');
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;
@@ -222,4 +224,113 @@
 .view-container section {
   max-width: 700px;
   margin: 0 auto;
+}
+
+.partners-section {
+  background-color: #111114;
+  color: #f0eeff;
+  padding: 80px 48px;
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+}
+
+.partners-heading {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f0eeff;
+  margin: 0 0 56px 0;
+  line-height: 1.2;
+}
+
+.section-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c084fc;
+  margin: 0 0 16px 0;
+  text-align: center;
+}
+
+.partners-grid-wrapper {
+  margin-bottom: 0;
+}
+
+.partners-carousel {
+  display: flex;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 0%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.partner-card {
+  background: #18181c;
+  padding: 36px 24px;
+  display: inline-block;
+  width: 10%;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.partner-cell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 120%, rgba(192, 132, 252, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.partner-cell:hover {
+  background: #1e1e24;
+}
+
+.partner-cell:hover::after {
+  opacity: 1;
+}
+
+.partner-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgba(240, 238, 255, 0.85);
+  letter-spacing: 0.02em;
+  margin: 0;
+  transition: color 0.2s ease;
+}
+
+.partner-cell:hover .partner-name {
+  color: #f0eeff;
+}
+
+/* Fade-in animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+  animation: fadeUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+@media (max-width: 640px) {
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .partners-section {
+    padding: 48px 24px;
+  }
 }
