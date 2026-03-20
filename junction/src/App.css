@@ -226,10 +226,17 @@
   margin: 0 auto;
 }
 
-.partners-section {
-  padding: 80px 48px;
-  font-family: 'DM Sans', sans-serif;
-  min-height: 100vh;
+.partners {
+  margin-top: 50px;
+}
+
+#our-partners {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  position: absolute;
+  left: 20px;
+  color:aliceblue
 }
 
 .carousel {
