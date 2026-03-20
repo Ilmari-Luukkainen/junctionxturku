@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import Header from './Header'
+import Partners from './components/Partners'
 import Footer from './Footer'
 
 const routes = {
@@ -61,9 +62,12 @@ function App() {
             <p>Täällä näkyy muokkausmahdollisuus.</p>
           </section>
         )}
-      </main>
-      <Footer/>
+        </main>
+        <Partners /> 
+        <Footer />
+       
     </>
+    
     )
 }
 

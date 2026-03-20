@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap');
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;
@@ -257,6 +259,61 @@
 .view-container section {
   max-width: 700px;
   margin: 0 auto;
+}
+
+.partners {
+  margin-top: 50px;
+}
+
+#our-partners {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  position: absolute;
+  left: 20px;
+  color:aliceblue
+}
+
+.carousel {
+  margin: 100px auto;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+.partners-grid {
+  display: flex;
+  gap: 1em;
+  width: max-content;
+  animation: spin 10s linear infinite;
+  padding-right: 1em;
+}
+
+.partner-card {
+  padding: 36px 24px;
+  display: inline-block;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fade-in animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+  animation: fadeUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes spin {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.33%); }
 }
 
 
