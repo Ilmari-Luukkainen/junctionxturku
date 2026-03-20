@@ -45,7 +45,7 @@ function App() {
           <section id="homepage">
             <h2>Etusivu</h2>
             <p>Tervetuloa Junction-sivulle.</p>
-          <img src="https://upload.wikimedia.org/wikipedia/en/1/1d/Page_Under_Construction.png?_=20131218004545" alt="Welcome GIF" className="construction" />
+          <img src="/Construction.png" alt="Welcome GIF" className="construction" />
           </section>
         )}
 
