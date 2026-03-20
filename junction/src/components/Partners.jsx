@@ -24,7 +24,7 @@ const PARTNERS = [
   },
 ];
 
-const PARTNERS_DUPLICATED = [...PARTNERS, ...PARTNERS, ...PARTNERS ];
+const PARTNERS_DUPLICATED = [...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS];
 
 const Partners = () => {
     return(
