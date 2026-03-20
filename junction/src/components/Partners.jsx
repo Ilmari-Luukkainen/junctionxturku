@@ -1,36 +1,45 @@
-import { useEffect, useRef } from "react";
+
 import Card from "./Card";
 
 const PARTNERS = [
   { 
     name: "Turun kaupunki",
-    logo: "junction\public\turunkaupunki_logo.png"
+    logo: "/turunkaupunki_logo.png"
   },
   { 
     name: "Business Turku",
-    logo: "junction\public\businessturku_logo.png"
+    logo: "/businessturku_logo.png"
   },
   {
     name: "Oskarin suolakurkku",
-    logo: "junction\public\turunkaupunki_logo.png"
+    logo: "/suolakurkku.png"
   },
   {
     name: "Felix sinappi",
-    logo: "junction\public\felix_logo.png"
+    logo: "/felix_logo.png"
+  },
+  {
+    name: "Patrikin nakki ja vene",
+    logo: "/nakki.png"
   },
 ];
 
-const Partners = ({PARTNERS}) => {
+const PARTNERS_DUPLICATED = [...PARTNERS, ...PARTNERS, ...PARTNERS ];
+
+const Partners = () => {
     return(
         <section className="partners">
-            <div className="absolute left-0 flex gap-4">
-                { PARTNERS.map((partner,idx) => (
-                    <Card image={partner.image} key={idx}/>
+          <div className="carousel">
+            <div className="partners-grid">
+                { PARTNERS_DUPLICATED.map((partner, idx) => (
+                    <Card image={partner.logo} name={partner.name} key={idx}/>
                 ))
               }
             </div>
+          </div>
         </section>
     );
 }
+
 
 export default Partners;

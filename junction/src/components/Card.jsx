@@ -1,14 +1,8 @@
-import React from "react";
-
-interface CardProps{
-    image: String;
-}
-
-const Card: React.FC<CardProps> = ({ image }) => {
+const Card = ({ image, name }) => {
 
     return(
-        <div>
-            <Image src={image} alt={image} fill style=({objectFit: 'cover'}) /> 
+        <div className="partner-card">
+            <img src={image} alt={name} height={80} /> 
         </div>
     )
 }
