@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import Header from './Header'
 import Partners from './components/Partners'
+import InfoCards from './components/InfoCards'
 import Footer from './Footer'
+
 
 const routes = {
   '/': 'homepage',
@@ -64,6 +66,7 @@ function App() {
         )}
         </main>
         <Partners /> 
+        <InfoCards />
         <Footer />
        
     </>

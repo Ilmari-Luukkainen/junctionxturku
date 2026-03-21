@@ -330,6 +330,72 @@
   display: inline-block;
   vertical-align: middle;
 }
+
+
+.stats-container {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+.stat-card-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 80%;
+  gap: 15px;
+  margin-left: 10%;
+  
+}
+.stat-card {
+  background-color: #251f26;
+  color: aliceblue;
+  border-radius: 12px;
+  height: 200px;
+  border: 1px solid #3b3c3e;
+  box-shadow: 1px 1px 6px -2px var(--accent-border), inset 1px 1px 6px -2px var(--accent-border) ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#card-a1{
+  width: 60%;
+}
+
+#card-a2{
+  width: 35%;
+}
+
+#card-b1{
+  width: 40%;
+}
+
+#card-b2{
+  width: 65%;
+}
+.stat-label {
+  font-size: 1.1rem;
+  color: aliceblue;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 3.5rem;
+  margin: 0.5rem 0;
+  color: var(--accent);
+}
+
+/* Responsive: Stack them on mobile */
+@media (max-width: 640px) {
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 .footer {
   display: flex;
   align-items: center;
