@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&family=Montserrat:wght@900&display=swap');
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -33,7 +35,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #9ca3af;
-    --text-h: #f3f4f6;
+    --text-h: #fefeff;
     --bg: #16171d;
     --border: #2e303a;
     --code-bg: #1f2028;
@@ -96,6 +98,8 @@ p {
   margin: 0;
 }
 
+
+
 code,
 .counter {
   font-family: var(--mono);
@@ -109,4 +113,12 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+.content-wrapper {
+  flex-grow: 1; 
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  width: 100%;
 }
