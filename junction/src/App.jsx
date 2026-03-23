@@ -49,7 +49,6 @@ function App() {
             <Landingpage />
             <Partners /> 
             <InfoCards />
-          <img src="/Construction.png" alt="Welcome GIF" className="construction" />
           </section>
         )}
 
