@@ -5,9 +5,9 @@ export default function Landingpage() {
   return (
     <div className="landing-container">
       <div className="content-wrapper">
-        <h1 className="single-line-center">
+        <h3 className="single-line-center">
           Hack the future
-        </h1>
+        </h3>
         {/* registernappi */}
       </div>
 

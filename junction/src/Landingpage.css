@@ -94,13 +94,23 @@ h2 {
     font-size: 20px;
   }
 }
+h3 {
+  font-size: 80px;
+  letter-spacing: -2.4px;
+  margin: 40px 0;
+  line-height: 1.1;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
 p {
   margin: 0;
 }
 
 
 .single-line-center {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', bold;
   font-weight: 900;
   letter-spacing: -2px;
   font-size: clamp(24px, 6vw, 60px);
