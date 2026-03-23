@@ -47,6 +47,8 @@ function App() {
           <section id="homepage">
             <h2>Etusivu</h2>
             <p>Tervetuloa Junction-sivulle.</p>
+            <Partners /> 
+            <InfoCards />
           <img src="/Construction.png" alt="Welcome GIF" className="construction" />
           </section>
         )}
@@ -65,8 +67,7 @@ function App() {
           </section>
         )}
         </main>
-        <Partners /> 
-        <InfoCards />
+
         <Footer />
        
     </>
