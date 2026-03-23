@@ -404,6 +404,21 @@
   box-sizing: border-box;
   width: 100%;
   border-top: 1px solid var(--border);
+  gap: 40px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding-inline: 20px;
+    padding-block: 30px;
+    gap: 30px;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    padding-inline: 16px;
+    padding-block: 20px;
+    gap: 20px;
+  }
 }
 
 .footer-socials {
@@ -412,6 +427,12 @@
   flex-direction: column;
   gap: 8px; /* väli kuvien väliin */ 
   align-items: flex-start;
+
+  @media (max-width: 768px) {
+    flex: none;
+    align-items: center;
+    width: 100%;
+  }
 }
 
 .social-link {
@@ -422,6 +443,10 @@
   color: grey;
   text-decoration: none;
   transition: color 0.5s;
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
 }
 .social-link:hover {
   transition: 0.5s;
@@ -466,6 +491,18 @@
   flex-direction: column;
   gap: 8px; /* väli tekstin väliin */
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex: none;
+    width: 100%;
+  }
+
+  p {
+    margin: 0;
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
+  }
 }
 
 .footer-copyright {
@@ -475,4 +512,16 @@
   gap: 4px; /* väli tekstiin */
   align-items: flex-end;
 
+  @media (max-width: 768px) {
+    flex: none;
+    align-items: center;
+    width: 100%;
+  }
+
+  p {
+    margin: 0;
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
+  }
 }
