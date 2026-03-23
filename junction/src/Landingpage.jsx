@@ -12,8 +12,10 @@ export default function Landingpage() {
 
       {/*alapalkki*/}
       <div className="bottom-bar">
-        <span className="bottom-left">9-11 October 2026</span>
-        <span className="bottom-right">Turku, Finland</span>
+          <div className="bar-texts">
+              <p className="bar-text-left"> 9-11 October</p>
+              <p className="bar-text-right"> Turku, Finland</p>
+          </div>
       </div>
     </div>
   )
