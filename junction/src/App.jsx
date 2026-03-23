@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import Header from './Header'
+import Landingpage from './Landingpage'
 import Partners from './components/Partners'
 import InfoCards from './components/InfoCards'
 import Footer from './Footer'
@@ -45,8 +46,7 @@ function App() {
       <main className="view-container">
         {activeSection === 'homepage' && (
           <section id="homepage">
-            <h2>Etusivu</h2>
-            <p>Tervetuloa Junction-sivulle.</p>
+            <Landingpage />
             <Partners /> 
             <InfoCards />
           <img src="/Construction.png" alt="Welcome GIF" className="construction" />
