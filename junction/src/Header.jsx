@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "./assets/logo.jpeg";
+import logo from "./assets/JUNCTIONx_logos-emblem-white.svg";
 import "./header.css";
 
 function Header({ onNavigate }) {
