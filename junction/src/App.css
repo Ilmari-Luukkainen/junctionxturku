@@ -195,11 +195,19 @@
   justify-content: flex-start;
   transition: transform 0.3s ease;
   z-index: 1000;
-  background: var(--bg);
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   border-bottom: 0px solid var(--border);
   padding: 12px 20px;
   height: 64px;
   box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  .header {
+    background: rgba(22, 23, 29, 0.6);
+  }
 }
 
 .header.show {
