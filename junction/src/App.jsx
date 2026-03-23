@@ -5,6 +5,7 @@ import Landingpage from './Landingpage'
 import Partners from './components/Partners'
 import InfoCards from './components/InfoCards'
 import Footer from './Footer'
+import Background from './Background.jsx'
 
 
 const routes = {
@@ -46,7 +47,9 @@ function App() {
       <main className="view-container">
         {activeSection === 'homepage' && (
           <section id="homepage">
+            <Background />
             <Landingpage />
+            <div class="blur-overlay"></div>
             <Partners /> 
             <InfoCards />
           </section>
