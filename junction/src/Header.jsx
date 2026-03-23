@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import logo from "./assets/logo.jpeg";
+import "./header.css";
 
 function Header({ onNavigate }) {
   const [visible, setVisible] = useState(true);
