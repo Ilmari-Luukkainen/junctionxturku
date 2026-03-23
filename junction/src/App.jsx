@@ -49,6 +49,7 @@ function App() {
           <section id="homepage">
             <Background />
             <Landingpage />
+            <div class="blur-overlay"></div>
             <Partners /> 
             <InfoCards />
           </section>
