@@ -1,11 +1,20 @@
 import React from 'react'
+import DecryptedText from './Decryptedtext'
 
 export default function Landingpage() {
   return (
     <div className="landing-container">
       <div className="content-wrapper">
         <h1 className="single-line-center">
-          Hack the future
+          <div style={{ marginTop: '4rem' }}>
+            <DecryptedText
+              text="Hack the Future"
+              animateOn='view'
+              revealDirection="start"
+              sequential
+              useOriginalCharsOnly
+            />
+          </div>
         </h1>
         {/* registernappi */}
       </div>
