@@ -49,3 +49,7 @@ If you deploy as a Single Page App, all routes must rewrite to `index.html`.
 ```
 /* /index.html 200
 ```
+
+
+npm install ogl
+npm install motion
