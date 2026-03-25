@@ -51,5 +51,11 @@ If you deploy as a Single Page App, all routes must rewrite to `index.html`.
 ```
 
 
+
+
+Lataa seuraavat:
+
+npm install gsap
 npm install ogl
 npm install motion
+
