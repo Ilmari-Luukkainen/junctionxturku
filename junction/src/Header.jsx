@@ -5,15 +5,23 @@ import "./header.css";
 
 function Header({ onNavigate }) {
   const menuSections = [
-    {
-      title: "Haasteet",
-      subtitle: "Tutki avoimia haasteita ja löydä sopivin.",
-      links: [{ label: "Kaikki haasteet", path: "/challenges" }],
+{
+      title: "About",
+      subtitle: "Learn more about Junction Turku and our mission to empower the local tech community.",
+      links: [{ label: "Our Team", path: "/about" }],
     },
     {
-      title: "Muokkaa",
-      subtitle: "Päivitä sisältöä ja hallitse näkymän asetuksia.",
-      links: [{ label: "Avaa muokkaus", path: "/edit" }],
+      title: "Challenges",
+      subtitle: "Explore the tracks and hackathon challenges provided by our industry partners.",
+      links: [{ label: "All Challenges", path: "/challenges" }],
+    },
+    {
+      title: "Contact",
+      subtitle: "Have questions or want to collaborate? Connect with the Junction Turku team.",
+      links: [
+        { label: "Instagram", path: "https://www.instagram.com/junctionturku" },
+        { label: "LinkedIn", path: "https://www.linkedin.com/company/junction-turku" }
+      ],
     },
   ];
 
