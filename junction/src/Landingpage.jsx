@@ -1,6 +1,7 @@
 import React from 'react'
 import DecryptedText from './Decryptedtext'
 
+
 export default function Landingpage() {
   return (
     <div className="landing-container">
@@ -16,13 +17,13 @@ export default function Landingpage() {
             />
           </div>
         </h1>
-        {/* registernappi */}
+        {/*alapalkki*/}
       </div>
 
       {/*alapalkki*/}
       <div className="bottom-bar">
           <div className="bar-texts">
-              <p className="bar-text-left"> 9-11 October</p>
+              <p className="bar-text-left"> 23-25 October</p>
               <p className="bar-text-right"> Turku, Finland</p>
           </div>
       </div>
