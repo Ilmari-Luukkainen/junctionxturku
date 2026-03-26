@@ -6,6 +6,9 @@ import Partners from './components/Partners'
 import InfoCards from './components/InfoCards'
 import Footer from './Footer'
 import Background from './Background.jsx'
+import FAQ from './Faq'
+import Video from './Video.jsx'
+
 
 
 const routes = {
@@ -50,8 +53,10 @@ function App() {
             <Background />
             <Landingpage />
             <div class="blur-overlay"></div>
+            <Video />
             <Partners /> 
             <InfoCards />
+            <FAQ />
           </section>
         )}
 
