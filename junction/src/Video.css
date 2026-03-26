@@ -1,0 +1,30 @@
+.custom-video {
+    width: 90%;
+    max-width: 90%;
+    height: auto;
+    border-radius: 12px;
+    max-height: 80vh;
+    pointer-events: none;
+    transition: none;
+    padding-top: 10svh;
+
+    /*blur-effect*/
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%, 
+        rgba(0, 0, 0, 0.6) 10%, 
+        black 25%,            
+        black 75%,            
+        rgba(0, 0, 0, 0.6) 90%, 
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%, 
+        rgba(0, 0, 0, 0.6) 10%, 
+        black 25%, 
+        black 75%, 
+        rgba(0, 0, 0, 0.6) 90%, 
+        transparent 100%
+    );
+}

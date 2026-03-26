@@ -9,7 +9,7 @@ export default function Landingpage() {
         <h1 className="single-line-center">
           <div style={{ marginTop: '4rem' }}>
             <DecryptedText
-              text="Hack the Future"
+              text="Hack the Future!"
               animateOn='view'
               revealDirection="start"
               sequential
@@ -23,7 +23,7 @@ export default function Landingpage() {
       {/*alapalkki*/}
       <div className="bottom-bar">
           <div className="bar-texts">
-              <p className="bar-text-left"> 23-25 October</p>
+              <p className="bar-text-left"> 16-18 October</p>
               <p className="bar-text-right"> Turku, Finland</p>
           </div>
       </div>

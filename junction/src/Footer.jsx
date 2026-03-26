@@ -19,9 +19,12 @@ function Footer() {
                 </a>
             </div>
             <div className="footer-info">
-                <p>TurkuXJunction 2026</p>
-                <p>Kattellaa syssymmällä klo 18:37 - klo 20:67</p>
-                <p>Osoitteen tie 123</p>
+                <p>16-18 October 2026</p>
+                <p>Turku, Finland</p>
+                <p><a href="https://hackjunction.com">hackjunction.com</a></p>
+                
+                
+                
             </div>
             <div className="footer-copyright">
                 <p>Copyright © 2026 TurkuXJunction</p>
