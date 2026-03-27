@@ -8,6 +8,7 @@ import Footer from './Footer'
 import Background from './Background.jsx'
 import FAQ from './Faq'
 import Video from './Video.jsx'
+import ChallengeBlocks from './ChallengeBlocks.jsx'
 
 
 
@@ -53,8 +54,9 @@ function App() {
             <Background />
             <Landingpage />
             <div class="blur-overlay"></div>
-            <Video />
-            <Partners /> 
+            <Video /> 
+            <ChallengeBlocks />
+            <Partners />
             <InfoCards />
             <FAQ />
           </section>

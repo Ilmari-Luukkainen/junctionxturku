@@ -17,10 +17,7 @@ export default function Landingpage() {
             />
           </div>
         </h1>
-        {/*alapalkki*/}
       </div>
-
-      {/*alapalkki*/}
       <div className="bottom-bar">
           <div className="bar-texts">
               <p className="bar-text-left"> 16-18 October</p>

@@ -25,7 +25,7 @@ const PARTNERS_DUPLICATED = [...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS,
 const Partners = () => {
     return(
         <section className="partners">
-          <h3 id="our-partners">Our Partners:</h3>
+          <h4 id="our-partners">Our Partners:</h4>
           <div className="carousel">
             <div className="partners-grid">
                 { PARTNERS_DUPLICATED.map((partner, idx) => (
