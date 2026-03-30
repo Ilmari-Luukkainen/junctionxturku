@@ -7,7 +7,7 @@ const FAQ = () => {
 
   return (
     <div id="faq" className="faq-container">
-      <h1 className="faq-title">FREQUENTLY ASKED QUESTIONS (FAQ).</h1>
+      <h1 className="faq-title">FREQUENTLY ASKED QUESTIONS.</h1>
       
       {questions.map((q) => (
         <div key={q.id} className="faq-item">
