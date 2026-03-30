@@ -58,4 +58,3 @@ Lataa seuraavat:
 npm install gsap
 npm install ogl
 npm install motion
-
