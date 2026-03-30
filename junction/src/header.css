@@ -240,4 +240,22 @@
   .header-menu-subtitle {
     min-height: 0;
   }
+  /* Make countdown compact on mobile */
+  .countdown {
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 6px;
+    max-width: 60vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 420px) {
+  .countdown {
+    padding: 6px 10px;
+    font-size: 13px;
+    max-width: 72vw;
+  }
 }
