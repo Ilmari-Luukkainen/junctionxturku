@@ -21,6 +21,7 @@ export default function Landingpage() {
       <div className="bottom-bar">
           <div className="bar-texts">
               <p className="bar-text-left"> 16-18 October</p>
+              <div className="bar-line"></div>
               <p className="bar-text-right"> Turku, Finland</p>
           </div>
       </div>

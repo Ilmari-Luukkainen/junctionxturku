@@ -187,8 +187,7 @@
 /* Header styles moved to src/header.css */
 
 .view-container {
-  padding: 160px 24px 24px;
-  flex: 1;
+  
 }
 
 .view-container section {
