@@ -1,4 +1,4 @@
-/* Perusasetukset */
+
 .info-container {
   min-height: 100vh;
   background-color: #0f0a14;
@@ -11,7 +11,7 @@
   justify-content: center;
 }
 
-/* Taustahohde (Kuvasi kaltainen violetti sumu) */
+
 .bg-glow {
   position: fixed;
   width: 60vw;
@@ -75,7 +75,7 @@
   line-height: 1.6;
 }
 
-/* Grid-asettelu */
+
 .info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -160,8 +160,6 @@
 
 
 
-
-/* Responsiivisuus */
 @media (max-width: 768px) {
   .info-header h1 {
     font-size: 3rem;
