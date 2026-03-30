@@ -35,7 +35,6 @@
   background: radial-gradient(circle, #d946ef, transparent);
 }
 
-
 .info-content {
   position: relative;
   z-index: 1;
@@ -127,22 +126,16 @@
 }
 
 
-
 .challenge-image {
-  width: 100%;
-  height: 400px; 
+  width: 240px;
+  height: 240px; 
+  margin: 0 auto 25px auto; 
+  border-radius: 50%; 
+  border: 3px solid #a855f7; 
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
   background: #1a151f; 
   position: relative;
   overflow: hidden; 
-  border-radius: 20px; 
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.image-placeholder {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, #2e1065, #701a75);
-  opacity: 0.4;
 }
 
 .challenge-image img {
@@ -150,11 +143,13 @@
   height: 100%;
   object-fit: cover; 
   transition: transform 0.5s ease;
-  filter: blur(40px);
-  transform: scale(1.1); 
+  filter: none; 
+  transform: scale(1); 
 }
 
-
+.challenge-box:hover .challenge-image img {
+  transform: scale(1.1);
+}
 
 
 

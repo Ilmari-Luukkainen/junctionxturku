@@ -4,7 +4,6 @@ import './ChallengePage.css';
 const ChallengePage = () => {
   return (
     <div className="info-container">
-      {/* Taustan sumu-efektit */}
       <div className="bg-glow top-glow"></div>
       <div className="bg-glow bottom-glow"></div>
 

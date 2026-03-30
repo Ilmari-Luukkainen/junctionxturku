@@ -10,13 +10,14 @@ import FAQ from './Faq'
 import Video from './Video.jsx'
 import ChallengeBlocks from './ChallengeBlocks.jsx'
 import ChallengesPage from './ChallengePage.jsx'
-
+import About from './About.jsx'
 
 
 const routes = {
   '/': 'homepage',
   '/challenges': 'challenges',
   '/edit': 'edit',
+  '/about': 'about'
 }
 
 const resolvePath = (path) => routes[path] ?? 'homepage'
@@ -87,6 +88,13 @@ function App() {
             <p>Täällä näkyy muokkausmahdollisuus.</p>
           </section>
         )}
+
+        {activeSection === 'about' && (
+          <section id="about">
+            <About />
+          </section>
+        )}
+
         </main>
 
         {/* Back to top button (mobile only) */}
