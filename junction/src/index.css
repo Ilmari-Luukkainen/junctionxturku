@@ -83,6 +83,8 @@ html, body, #root {
   }
 }
 
+/* Nyt saat koskee hekä jos tiiät mitä teet */
+
 html, body {
   overscroll-behavior-x: none;
   touch-action: pan-y;
