@@ -3,7 +3,7 @@
   min-height: 100vh;
   background-color: #0f0a14;
   color: #e0e0e0;
-  font-family: 'Inter', -apple-system, sans-serif;
+  font-family: 'Lato Normal';
   position: relative;
   overflow-x: hidden;
   padding: 80px 20px;
@@ -41,11 +41,13 @@
   z-index: 1;
   max-width: 900px;
   width: 100%;
+  font-family: 'Lato Normal';
 }
 
 .info-header {
   margin-bottom: 60px;
   margin-top: 30px;
+  font-family: 'Montserrat Medium';
 }
 
 .accent-line {
@@ -86,7 +88,7 @@
 }
 
 .step-num {
-  font-family: monospace;
+  font-family: 'Lato Normal';
   color: #a855f7;
   font-size: 0.9rem;
   font-weight: bold;
@@ -94,6 +96,7 @@
 
 .info-item h3 {
   font-size: 1.5rem;
+  font-family: 'Montserrat Medium';
   margin: 10px 0;
   color: #fff;
 }

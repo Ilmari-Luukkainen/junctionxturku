@@ -40,7 +40,7 @@ const ChallengePage = () => {
         <div className="challenge-image">
             <img src="./src/assets/questionmark.png"/> 
         </div>
-            <p><h2>We are currently finalizing the first set of technical challenges. Prepare your stack and stay tuned - the first block drops shortly.</h2></p>
+            <p><h3>We are currently finalizing the first set of technical challenges. Prepare your stack and stay tuned - the first block drops shortly.</h3></p>
         </div>
   
 
@@ -51,7 +51,7 @@ const ChallengePage = () => {
         <div className="challenge-image">
             <img src="./src/assets/questionmark.png"/> 
         </div>
-            <p><h2>Focus on real-world impact. We\'re bringing together the brightest minds to solve complex problems with cutting-edge tech.</h2></p>
+            <p><h3>Focus on real-world impact. We\'re bringing together the brightest minds to solve complex problems with cutting-edge tech.</h3></p>
         </div>
 
 
@@ -61,7 +61,7 @@ const ChallengePage = () => {
         <div className="challenge-image">
             <img src="./src/assets/questionmark.png"/> 
         </div>
-            <p><h2>A deep dive into AI and automation awaits. This track will test your ability to build scalable solutions under pressure.</h2></p>
+            <p><h3>A deep dive into AI and automation awaits. This track will test your ability to build scalable solutions under pressure.</h3></p>
         </div>
       
     </div>

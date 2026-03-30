@@ -26,7 +26,7 @@
 .top-glow {
   top: -20%;
   left: -10%;
-  background: radial-gradient(circle, #8b5cf6, transparent);
+  background: radial-gradient(circle, #d946ef, transparent);
 }
 
 .bottom-glow {
@@ -50,7 +50,7 @@
 .accent-line {
   width: 40px;
   height: 4px;
-  background-color: #a855f7;
+  background-color: #d946ef;
   margin-bottom: 20px;
 }
 
@@ -64,7 +64,7 @@
 }
 
 .text-highlight {
-  color: #a855f7;
+  color: #d946ef;
 }
 
 .subtitle {
@@ -86,7 +86,7 @@
 
 .step-num {
   font-family: monospace;
-  color: #a855f7;
+  color: #d946ef;
   font-size: 0.9rem;
   font-weight: bold;
 }
@@ -104,7 +104,7 @@
 }
 
 
-.challenge-box {
+.team-box {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);
   padding: 40px;
@@ -117,7 +117,7 @@
   text-align: center;
 }
 
-.challenge-box h2 {
+.team-box h2 {
   font-size: 1.2rem;
   letter-spacing: 2px;
   color: #fff;
@@ -126,19 +126,19 @@
 }
 
 
-.challenge-image {
+.team-image {
   width: 240px;
   height: 240px; 
   margin: 0 auto 25px auto; 
   border-radius: 50%; 
-  border: 3px solid #a855f7; 
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+  border: 3px solid #d946ef; 
+  box-shadow: 0 0 20px rgba(217, 70, 239, 0.3);
   background: #1a151f; 
   position: relative;
   overflow: hidden; 
 }
 
-.challenge-image img {
+.team-image img {
   width: 100%;
   height: 100%;
   object-fit: cover; 
@@ -147,7 +147,7 @@
   transform: scale(1); 
 }
 
-.challenge-box:hover .challenge-image img {
+.team-box:hover .team-image img {
   transform: scale(1.1);
 }
 
