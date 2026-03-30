@@ -9,6 +9,7 @@ import Background from './Background.jsx'
 import FAQ from './Faq'
 import Video from './Video.jsx'
 import ChallengeBlocks from './ChallengeBlocks.jsx'
+import ChallengesPage from './ChallengePage.jsx'
 
 
 
@@ -76,8 +77,7 @@ function App() {
 
         {activeSection === 'challenges' && (
           <section id="challenges">
-            <h2>Haasteet</h2>
-            <p>Täällä näkyy haasteet.</p>
+            <ChallengesPage />
           </section>
         )}
 

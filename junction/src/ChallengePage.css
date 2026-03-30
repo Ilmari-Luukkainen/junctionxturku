@@ -1,0 +1,169 @@
+/* Perusasetukset */
+.info-container {
+  min-height: 100vh;
+  background-color: #0f0a14;
+  color: #e0e0e0;
+  font-family: 'Inter', -apple-system, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Taustahohde (Kuvasi kaltainen violetti sumu) */
+.bg-glow {
+  position: fixed;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+.top-glow {
+  top: -20%;
+  left: -10%;
+  background: radial-gradient(circle, #8b5cf6, transparent);
+}
+
+.bottom-glow {
+  bottom: -10%;
+  right: -5%;
+  background: radial-gradient(circle, #d946ef, transparent);
+}
+
+/* Sisältöalue */
+.info-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  width: 100%;
+}
+
+.info-header {
+  margin-bottom: 60px;
+  margin-top: 30px;
+}
+
+.accent-line {
+  width: 40px;
+  height: 4px;
+  background-color: #a855f7;
+  margin-bottom: 20px;
+}
+
+.info-header h1 {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -3px;
+  margin: 0 0 20px 0;
+  color: #ffffff;
+}
+
+.text-highlight {
+  color: #a855f7;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #9ca3af;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* Grid-asettelu */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 80px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 40px;
+}
+
+.step-num {
+  font-family: monospace;
+  color: #a855f7;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.info-item h3 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  color: #fff;
+}
+
+.info-item p {
+  color: #9ca3af;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+
+.challenge-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.challenge-box h2 {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: 20px; 
+  margin-top: 10px;
+}
+
+
+
+.challenge-image {
+  width: 100%;
+  height: 400px; 
+  background: #1a151f; 
+  position: relative;
+  overflow: hidden; 
+  border-radius: 20px; 
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #2e1065, #701a75);
+  opacity: 0.4;
+}
+
+.challenge-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  transition: transform 0.5s ease;
+  filter: blur(40px);
+  transform: scale(1.1); 
+}
+
+
+
+
+
+
+
+
+/* Responsiivisuus */
+@media (max-width: 768px) {
+  .info-header h1 {
+    font-size: 3rem;
+  }
+}
