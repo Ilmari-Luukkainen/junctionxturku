@@ -8,7 +8,10 @@ function Header({ onNavigate }) {
 {
       title: "About",
       subtitle: "Learn more about Junction Turku and our mission to empower the local tech community.",
-      links: [{ label: "Our Team", path: "/about" }],
+      links: [
+        { label: "Our Team", path: "/about" },
+        { label: "FAQ", path: "#faq" },
+      ],
     },
     {
       title: "Challenges",
@@ -20,13 +23,15 @@ function Header({ onNavigate }) {
       subtitle: "Have questions or want to collaborate? Connect with the Junction Turku team.",
       links: [
         { label: "Instagram", path: "https://www.instagram.com/junctionturku" },
-        { label: "LinkedIn", path: "https://www.linkedin.com/company/junction-turku" }
+        { label: "LinkedIn", path: "https://www.linkedin.com/company/junction-turku" },
+        { label: "𝕏", path: "https://www.x.com/junctionturku" }
       ],
     },
   ];
 
-  const [visible, setVisible] = useState(true);
-  const hideTimeoutRef = useRef(null);
+  const headerRef = useRef(null);
+  const lastScrollYRef = useRef(0);
+  const headerOffsetRef = useRef(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -36,22 +41,55 @@ function Header({ onNavigate }) {
   const menuTimelineRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setVisible(false);
+    const header = headerRef.current;
+    if (!header) return undefined;
 
-      clearTimeout(hideTimeoutRef.current);
-      hideTimeoutRef.current = setTimeout(() => {
-        setVisible(true);
-      }, 500);
+    let running = true;
+    lastScrollYRef.current = window.scrollY;
+    headerOffsetRef.current = 0;
+
+    const onScroll = () => {
+      if (!running) return;
+
+      // When menu is expanded, keep header fully visible
+      if (isExpanded) {
+        header.style.transition = "";
+        header.style.transform = "translateY(0px)";
+        header.style.pointerEvents = "auto";
+        headerOffsetRef.current = 0;
+        lastScrollYRef.current = window.scrollY;
+        return;
+      }
+
+      // Disable CSS transition while syncing transform to scroll
+      header.style.transition = "none";
+
+      const currentY = window.scrollY;
+      const delta = currentY - lastScrollYRef.current;
+      lastScrollYRef.current = currentY;
+
+      const height = header.offsetHeight || 100;
+      headerOffsetRef.current = Math.min(Math.max(headerOffsetRef.current + delta, 0), height);
+
+      // Always fully visible at page top
+      if (currentY === 0) {
+        headerOffsetRef.current = 0;
+      }
+
+      header.style.transform = `translateY(-${headerOffsetRef.current}px)`;
+      header.style.pointerEvents = headerOffsetRef.current >= height - 0.5 ? "none" : "auto";
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    // ensure visible on mount
+    header.style.transform = "translateY(0px)";
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      clearTimeout(hideTimeoutRef.current);
+      running = false;
+      window.removeEventListener("scroll", onScroll);
     };
-  }, []);
+  }, [isExpanded]);
 
   const navigate = (path) => {
     setIsMenuOpen(false);
@@ -134,16 +172,14 @@ function Header({ onNavigate }) {
     }
   };
 
-  // Countdown to next November 11
+  // Countdown to 16 October 2026
   useEffect(() => {
+    const target = new Date(2026, 9, 16, 0, 0, 0); // October is month 9 (0-based)
+
     const updateCountdown = () => {
       const now = new Date();
-      const year = now.getFullYear();
-      let target = new Date(year, 10, 11, 0, 0, 0); // November is month 10 (0-based)
-      if (now > target) {
-        target = new Date(year + 1, 10, 11, 0, 0, 0);
-      }
-      const diff = target - now;
+      let diff = target - now;
+      if (diff < 0) diff = 0;
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
@@ -157,8 +193,14 @@ function Header({ onNavigate }) {
     return () => clearInterval(countdownInterval);
   }, []);
 
+  const isCountdownActive =
+    timeLeft.days > 0 ||
+    timeLeft.hours > 0 ||
+    timeLeft.minutes > 0 ||
+    timeLeft.seconds > 0;
+
   return (
-    <header className={`header ${visible ? "show" : "hide"}`}>
+    <header ref={headerRef} className="header">
       <div className="header-left">
         <a
           href="/"
@@ -173,7 +215,11 @@ function Header({ onNavigate }) {
       </div>
 
       <div className="header-center">
-        <div className="countdown" aria-live="polite">{timeLeft.days}d {String(timeLeft.hours).padStart(2,'0')}h {String(timeLeft.minutes).padStart(2,'0')}m {String(timeLeft.seconds).padStart(2,'0')}s</div>
+        {isCountdownActive && (
+          <div className="countdown" aria-live="polite">
+            {timeLeft.days}d {String(timeLeft.hours).padStart(2,'0')}h {String(timeLeft.minutes).padStart(2,'0')}m {String(timeLeft.seconds).padStart(2,'0')}s
+          </div>
+        )}
       </div>
 
       <div className={`header-right ${isExpanded ? "open" : ""}`} ref={menuShellRef}>
@@ -203,18 +249,44 @@ function Header({ onNavigate }) {
               <div className="header-menu-subtitle">{section.subtitle}</div>
 
               <div className="header-menu-links">
-                {section.links.map((link) => (
-                  <a
-                    key={link.path}
-                    href={link.path}
-                    onClick={(event) => {
-                      event.preventDefault();
-                      navigate(link.path);
-                    }}
-                  >
-                    {link.label}
-                  </a>
-                ))}
+                {section.links.map((link) => {
+                  const isExternal = /^(https?:)?\/\//.test(link.path) || link.path.startsWith("mailto:") || link.path.startsWith("tel:");
+                  const isHash = link.path && link.path.startsWith('#');
+                  return (
+                    <a
+                      key={link.path}
+                      href={link.path}
+                      {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      onClick={(event) => {
+                        if (isExternal) return; // let browser handle external links
+
+                        if (isHash) {
+                          event.preventDefault();
+                          const el = document.querySelector(link.path);
+                          if (el) {
+                            const headerEl = document.querySelector('.header');
+                            const headerHeight = headerEl ? headerEl.offsetHeight : 100;
+                            const top = el.getBoundingClientRect().top + window.scrollY - headerHeight;
+                            window.scrollTo({ top, behavior: 'smooth' });
+                          }
+
+                          // close menu if open
+                          setIsMenuOpen(false);
+                          menuTimelineRef.current?.eventCallback('onReverseComplete', () => {
+                            setIsExpanded(false);
+                          });
+                          menuTimelineRef.current?.reverse();
+                          return;
+                        }
+
+                        event.preventDefault();
+                        navigate(link.path);
+                      }}
+                    >
+                      {link.label}
+                    </a>
+                  );
+                })}
               </div>
             </div>
           ))}

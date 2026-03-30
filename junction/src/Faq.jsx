@@ -6,7 +6,7 @@ const FAQ = () => {
   const [openId, setOpenId] = useState(null);
 
   return (
-    <div className="faq-container">
+    <div id="faq" className="faq-container">
       <h1 className="faq-title">FREQUENTLY ASKED QUESTIONS (FAQ).</h1>
       
       {questions.map((q) => (
