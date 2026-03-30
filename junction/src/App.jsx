@@ -22,6 +22,7 @@ const resolvePath = (path) => routes[path] ?? 'homepage'
 
 function App() {
   const [activeSection, setActiveSection] = useState(() => resolvePath(location.pathname))
+  const [showTop, setShowTop] = useState(false);
 
   const renderView = (path) => {
     setActiveSection(resolvePath(path))
@@ -44,6 +45,17 @@ function App() {
       window.removeEventListener('popstate', onPopState)
     }
   }, [])
+
+  useEffect(() => {
+    const onScroll = () => {
+      setShowTop(window.scrollY > 120);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
     <>
@@ -76,6 +88,18 @@ function App() {
           </section>
         )}
         </main>
+
+        {/* Back to top button (mobile only) */}
+        {typeof window !== 'undefined' && (
+          <button
+            className={`back-to-top ${showTop ? 'visible' : ''}`}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            aria-label="Back to top"
+          >
+            <span className="back-to-top-label">TOP</span>
+            <span className="back-to-top-arrow">▲</span>
+          </button>
+        )}
 
         <Footer />
        
