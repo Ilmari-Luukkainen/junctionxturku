@@ -186,10 +186,6 @@
 }
 /* Header styles moved to src/header.css */
 
-.view-container {
-  
-}
-
 .view-container section {
   width: 100%;
   max-width: 100%;
