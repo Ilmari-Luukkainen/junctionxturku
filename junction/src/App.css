@@ -203,43 +203,6 @@
 }
 
 
-.partners {
-  padding-top: 10svh;
-}
-
-#our-partners {
-  font-size: 32px;
-  font-weight: 500;
-  margin: 0 0 12px 20px;
-  color:aliceblue
-}
-
-.carousel {
-  margin: 0 auto;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-}
-
-.partners-grid {
-  display: flex;
-  gap: 1em;
-  width: max-content;
-  animation: spin 30s linear infinite;
-  padding-right: 1em;
-}
-
-.partner-card {
-  padding: 36px 24px;
-  display: inline-block;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  cursor: default;
-  position: relative;
-  overflow: hidden;
-}
-
 /* Fade-in animation */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
@@ -261,71 +224,6 @@
 /* Nav logo moved to src/header.css */
 
 
-.stats-container {
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 15px;
-  padding: 2rem;
-  font-family: "Lato Normal";
-  padding-top: 15svh;
-}
-
-.stat-card-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 80%;
-  gap: 15px;
-  margin-left: 10%;
-  
-}
-.stat-card {
-  background-color: rgba(13, 13, 13, 0.75);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); /* Safari-tuki */
-  color: aliceblue;
-  border-radius: 12px;
-  height: 200px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 1px 1px 6px -2px var(--accent-border), inset 1px 1px 6px -2px var(--accent-border);       
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transition: all 0.3s ease; 
-}
-
-.stat-card:hover {
-  background-color: rgba(20, 20, 20, 0.85);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-#card-a1{
-  width: 60%;
-}
-
-#card-a2{
-  width: 35%;
-}
-
-#card-b1{
-  width: 40%;
-}
-
-#card-b2{
-  width: 65%;
-}
-.stat-label {
-  font-size: 1.1rem;
-  color: aliceblue;
-  font-weight: 500;
-}
-
-.stat-value {
-  font-size: 3.5rem;
-  margin: 0.5rem 0;
-  color: white;
-}
 
 /* Responsive: Stack them on mobile */
 @media (max-width: 640px) {

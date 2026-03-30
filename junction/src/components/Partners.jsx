@@ -1,5 +1,6 @@
 
 import Card from "./Card";
+import "./Partners.css"
 
 const PARTNERS = [
   { 

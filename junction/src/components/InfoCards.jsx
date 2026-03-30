@@ -1,4 +1,5 @@
 import React from 'react';
+import "./InfoCards.css"
 
 const InfoCards = () => {
   return (
