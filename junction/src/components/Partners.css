@@ -19,8 +19,9 @@
 
 .partners-grid {
   display: flex;
-  width: max-content; /* Pakottaa sisällön yhdelle riville */
-  animation: spin 20s linear infinite; /* Säädä nopeutta tästä */
+  width: max-content; /* TÄRKEÄ: estää rivittymisen */
+  animation: spin 30s linear infinite;
+  gap: 0; /* Jos käytät gapia, se on oltava sama molemmilla puolilla */
 }
 
 .partner-card {
@@ -32,6 +33,7 @@
   cursor: default;
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 @keyframes spin {
@@ -39,7 +41,7 @@
     transform: translateX(0);
   }
   to {
-    /* Liikutetaan tasan puoleen väliin monistettua jonoa */
-    transform: translateX(-75%);
+    /* Tämä siirtää listaa tasan yhden kokonaisen setin verran */
+    transform: translateX(-50%);
   }
 }
