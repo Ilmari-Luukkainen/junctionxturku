@@ -54,6 +54,7 @@
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
+  min-width: 180px;
 }
 
 @keyframes spin {
