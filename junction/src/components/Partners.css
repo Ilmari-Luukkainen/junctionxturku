@@ -41,6 +41,7 @@
   width: max-content; /* TÄRKEÄ: estää rivittymisen */
   animation: spin 10s linear infinite;
   gap: 0; /* Jos käytät gapia, se on oltava sama molemmilla puolilla */
+  will-change: transform; /* Parantaa animaation suorituskykyä */
 }
 
 .partner-card {
@@ -76,4 +77,5 @@
   overflow: hidden;
   flex-shrink: 0;
 }
+
 
