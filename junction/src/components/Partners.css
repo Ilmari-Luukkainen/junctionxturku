@@ -39,7 +39,7 @@
 .partners-grid {
   display: flex;
   width: max-content; /* TÄRKEÄ: estää rivittymisen */
-  animation: spin 10s linear infinite;
+  animation: spin 30s linear infinite;
   gap: 0; /* Jos käytät gapia, se on oltava sama molemmilla puolilla */
   will-change: transform; /* Parantaa animaation suorituskykyä */
 }
