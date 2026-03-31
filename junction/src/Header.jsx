@@ -10,7 +10,7 @@ function Header({ onNavigate }) {
       subtitle: "Learn more about Junction Turku and our mission to empower the local tech community.",
       links: [
         { label: "Our Team", path: "/about" },
-        { label: "FAQ", path: "#faq" },
+        { label: "FAQ", path: "/#faq" },
       ],
     },
     {
@@ -258,30 +258,33 @@ function Header({ onNavigate }) {
                       href={link.path}
                       {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                       onClick={(event) => {
-                        if (isExternal) return; // let browser handle external links
+                        if (isExternal) return;
 
-                        if (isHash) {
+                        if (isHash || link.path.includes('#')) {
                           event.preventDefault();
-                          const el = document.querySelector(link.path);
-                          if (el) {
-                            const headerEl = document.querySelector('.header');
-                            const headerHeight = headerEl ? headerEl.offsetHeight : 100;
-                            const top = el.getBoundingClientRect().top + window.scrollY - headerHeight;
-                            window.scrollTo({ top, behavior: 'smooth' });
+                          
+                          const isActuallyOnHomePage = window.location.pathname === '/' || window.location.pathname === '';
+                          
+                          if (isActuallyOnHomePage) {
+                            const hash = link.path.includes('#') ? link.path.split('#')[1] : link.path.replace('#', '');
+                            const el = document.getElementById(hash);
+                            if (el) {
+                              const top = el.getBoundingClientRect().top + window.scrollY;
+                              window.scrollTo({ top, behavior: 'smooth' });
+                            }
+                          } else {
+                            navigate(link.path); 
                           }
 
-                          // close menu if open
                           setIsMenuOpen(false);
-                          menuTimelineRef.current?.eventCallback('onReverseComplete', () => {
-                            setIsExpanded(false);
-                          });
                           menuTimelineRef.current?.reverse();
+                          setTimeout(() => setIsExpanded(false), 300);
                           return;
                         }
 
-                        event.preventDefault();
-                        navigate(link.path);
-                      }}
+  event.preventDefault();
+  navigate(link.path);
+}}
                     >
                       {link.label}
                     </a>
