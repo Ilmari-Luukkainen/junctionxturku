@@ -82,8 +82,8 @@
 
 .register-button {
   align-items: center;
-  font-family: 'Montserrat medium';
-  font-size: 42px;
+  font-family: 'Montserrat', semibold;
+  font-size: 35px;
   letter-spacing: 2px;
   color: #ffffff;
   background-color: transparent;

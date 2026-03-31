@@ -17,6 +17,7 @@
   padding: 12px 20px;
   height: 100px;
   box-sizing: border-box;
+  font-family: 'Montserrat', semibold;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -59,10 +60,11 @@
 /* Header countdown*/
 .countdown {
   font-weight: 600;
-  color: var(--accent);
-  background: var(--accent-bg);
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
   padding: 20px 100px;
   border-radius: 6px;
+  font-family: 'montserrat', semibold;
 }
 
 /* Nav logo*/

@@ -13,9 +13,9 @@
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
-  --font-title: 'Montserrat', sans-serif;
-  --font-subheader: 'Montserrat', sans-serif;
-  --font-paragraph: 'Lato', sans-serif;
+  --font-title: 'Montserrat', Bold;
+  --font-subheader: 'Montserrat', Medium;
+  --font-paragraph: 'Lato Normal';
 
   font: 18px/145% var(--font-paragraph);
   letter-spacing: 0.18px;
@@ -116,6 +116,15 @@ h2 {
     font-size: 20px;
   }
 }
+h3 {
+  font-family: "Lato Normal";
+  font-size: 20px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 18px;  
+}}
 h4{
   font-family: "Montserrat", medium;
   font-size: 20px;
@@ -129,6 +138,7 @@ h4{
 
 p {
   margin: 0;
+  font-family: 'lato normal';
 }
 
 
