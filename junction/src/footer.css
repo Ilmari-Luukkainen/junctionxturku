@@ -7,9 +7,10 @@
   padding-block: 50px;
   box-sizing: border-box;
   width: 100%;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   gap: 40px;
   font-family: 'Lato Normal';
+  background: rgb(16, 15, 15);
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -33,6 +34,7 @@
   gap: 8px; /* väli kuvien väliin */ 
   align-items: flex-start;
   font-family: 'Lato Normal';
+  color: rgb(186, 184, 184);
 
   @media (max-width: 768px) {
     flex: none;
@@ -46,7 +48,7 @@
   align-items: center;
   font-size: 20px;
   gap: 17px; /* väli kuvan ja tekstin väliin */
-  color: grey;
+  color: rgb(186, 184, 184);
   text-decoration: none;
   transition: color 0.5s;
   
@@ -57,7 +59,7 @@
 }
 .social-link:hover {
   transition: 0.5s;
-  color: var(--accent);
+  color: white;
 }
 
 .icon-wrap {
@@ -99,6 +101,28 @@
   gap: 8px; /* väli tekstin väliin */
   align-items: center;
   font-family: 'Lato Normal';
+  color: rgb(186, 184, 184);
+
+  @media (max-width: 768px) {
+    flex: none;
+    width: 100%;
+  }
+
+  p {
+    margin: 0;
+    @media (max-width: 480px) {
+      font-size: 14px;
+    }
+  }
+}
+
+.footer-info a{
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* väli tekstin väliin */
+  align-items: center;
+  font-family: 'Lato Normal';
+  color: rgb(186, 184, 184);
 
   @media (max-width: 768px) {
     flex: none;
@@ -120,6 +144,7 @@
   gap: 4px; /* väli tekstiin */
   align-items: flex-end;
   font-family: 'Lato Normal';
+  color: rgb(186, 184, 184);
 
   @media (max-width: 768px) {
     flex: none;

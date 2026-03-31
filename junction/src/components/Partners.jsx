@@ -5,15 +5,15 @@ import "./Partners.css"
 const PARTNERS = [
   { 
     name: "Junction",
-    logo: "/src/assets/JUNCTIONx_logos-wordmark-white.svg"
+    logo: "/JUNCTIONx_logos-wordmark-white.svg"
   },
   { 
     name: "Junction",
-    logo: "/src/assets/JUNCTIONx_logos-wordmark-white.svg"
+    logo: "/JUNCTIONx_logos-wordmark-white.svg"
   },
   { 
     name: "Junction",
-    logo: "/src/assets/JUNCTIONx_logos-wordmark-white.svg"
+    logo: "/JUNCTIONx_logos-wordmark-white.svg"
   },
   
 
