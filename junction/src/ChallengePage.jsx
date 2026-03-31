@@ -35,7 +35,7 @@ const ChallengePage = () => {
 
 
         
-        <div className="challenge-box">
+        <div className="challenge-box" id="unlocking-soon">
             <h2>UNLOCKING SOON</h2>
         <div className="challenge-image">
             <img src="./src/assets/questionmark.png"/> 
@@ -46,7 +46,7 @@ const ChallengePage = () => {
 
 
 
-        <div className="challenge-box">
+        <div className="challenge-box" id="innovation-track">
             <h2>INNOVATION TRACK</h2>
         <div className="challenge-image">
             <img src="./src/assets/questionmark.png"/> 
@@ -56,7 +56,7 @@ const ChallengePage = () => {
 
 
 
-        <div className="challenge-box">
+        <div className="challenge-box" id="mystery-challenge">
             <h2>MYSTERY CHALLENGE</h2>
         <div className="challenge-image">
             <img src="./src/assets/questionmark.png"/> 

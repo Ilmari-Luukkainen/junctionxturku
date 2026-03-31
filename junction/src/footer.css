@@ -9,6 +9,7 @@
   width: 100%;
   border-top: 1px solid var(--border);
   gap: 40px;
+  font-family: 'Lato Normal';
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -31,6 +32,7 @@
   flex-direction: column;
   gap: 8px; /* väli kuvien väliin */ 
   align-items: flex-start;
+  font-family: 'Lato Normal';
 
   @media (max-width: 768px) {
     flex: none;
@@ -47,6 +49,7 @@
   color: grey;
   text-decoration: none;
   transition: color 0.5s;
+  
 
   @media (max-width: 480px) {
     font-size: 16px;
@@ -95,6 +98,7 @@
   flex-direction: column;
   gap: 8px; /* väli tekstin väliin */
   align-items: center;
+  font-family: 'Lato Normal';
 
   @media (max-width: 768px) {
     flex: none;
@@ -115,6 +119,7 @@
   flex-direction: column;
   gap: 4px; /* väli tekstiin */
   align-items: flex-end;
+  font-family: 'Lato Normal';
 
   @media (max-width: 768px) {
     flex: none;

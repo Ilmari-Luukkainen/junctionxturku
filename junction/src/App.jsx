@@ -20,8 +20,10 @@ const routes = {
   '/about': 'about'
 }
 
-const resolvePath = (path) => routes[path] ?? 'homepage'
-
+const resolvePath = (path) => {
+  const cleanPath = path.split('#')[0]; 
+  return routes[cleanPath] ?? 'homepage';
+};
 function App() {
   const [activeSection, setActiveSection] = useState(() => resolvePath(location.pathname))
   const [showTop, setShowTop] = useState(false);
@@ -59,6 +61,17 @@ function App() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+  if (activeSection === 'challenges' && window.location.hash) {
+    setTimeout(() => {
+      const id = window.location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100); 
+  }
+}, [activeSection]); 
   return (
     <>
       <Header onNavigate={navigateTo} />
@@ -69,7 +82,7 @@ function App() {
             <Landingpage />
             <div class="blur-overlay"></div>
             <Video /> 
-            <ChallengeBlocks />
+            <ChallengeBlocks onNavigate={navigateTo}/>
             <Partners />
             <InfoCards />
             <FAQ />
