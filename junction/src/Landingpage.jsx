@@ -1,6 +1,6 @@
 import React from 'react'
 import DecryptedText from './Decryptedtext.jsx'
-import BorderGlow from './Borderglow.jsx'
+import BorderGlow from './Borderglow.jsx'     
 
 export default function Landingpage() {
   return (
