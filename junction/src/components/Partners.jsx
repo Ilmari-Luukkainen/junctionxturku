@@ -4,12 +4,12 @@ import "./Partners.css"
 
 const PARTNERS = [
   { 
-    name: "Turun kaupunki",
-    logo: "/turunkaupunki_logo.png"
+    name: "Junction",
+    logo: "/src/assets/JUNCTIONx_logos-wordmark-white.svg"
   },
   { 
-    name: "Business Turku",
-    logo: "/businessturku_logo.png"
+    name: "Junction",
+    logo: "/src/assets/JUNCTIONx_logos-wordmark-white.svg"
   },
   { 
     name: "Junction",
