@@ -1,7 +1,7 @@
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
 import { useEffect, useRef } from 'react';
 
-import './backround.css';
+import './Backround.css';
 
 function hexToVec3(hex) {
   const h = hex.replace('#', '');
