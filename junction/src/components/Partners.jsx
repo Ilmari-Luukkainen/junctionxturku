@@ -15,6 +15,30 @@ const PARTNERS = [
     name: "Junction",
     logo: "/JUNCTIONx_logos-wordmark-white.svg"
   },
+   { 
+    name: "Junction",
+    logo: "/JUNCTIONx_logos-wordmark-white.svg"
+  },
+  { 
+    name: "Junction",
+    logo: "/JUNCTIONx_logos-wordmark-white.svg"
+  },
+  { 
+    name: "Junction",
+    logo: "/JUNCTIONx_logos-wordmark-white.svg"
+  },
+   { 
+    name: "Junction",
+    logo: "/JUNCTIONx_logos-wordmark-white.svg"
+  },
+  { 
+    name: "Junction",
+    logo: "/JUNCTIONx_logos-wordmark-white.svg"
+  },
+  { 
+    name: "Junction",
+    logo: "/JUNCTIONx_logos-wordmark-white.svg"
+  },
   
 ];
 
