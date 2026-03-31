@@ -17,6 +17,25 @@
   position: relative;
 }
 
+.partners {
+  padding-top: 10svh;
+}
+
+#our-partners {
+  font-size: 32px;
+  font-weight: 500;
+  margin: 0 0 12px 20px;
+  color:aliceblue
+}
+
+.carousel {
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+
 .partners-grid {
   display: flex;
   width: max-content; /* TÄRKEÄ: estää rivittymisen */
@@ -45,3 +64,16 @@
     transform: translateX(-50%);
   }
 }
+
+.partner-card {
+  padding: 36px 24px;
+  display: inline-block;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
