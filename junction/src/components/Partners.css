@@ -14,14 +14,13 @@
   width: 100%;
   overflow: hidden;
   display: flex;
+  position: relative;
 }
 
 .partners-grid {
   display: flex;
-  gap: 1em;
-  width: max-content;
-  animation: spin 30s linear infinite;
-  padding-right: 1em;
+  width: max-content; /* Pakottaa sisällön yhdelle riville */
+  animation: spin 20s linear infinite; /* Säädä nopeutta tästä */
 }
 
 .partner-card {
@@ -33,4 +32,14 @@
   cursor: default;
   position: relative;
   overflow: hidden;
+}
+
+@keyframes spin {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Liikutetaan tasan puoleen väliin monistettua jonoa */
+    transform: translateX(-50%);
+  }
 }
