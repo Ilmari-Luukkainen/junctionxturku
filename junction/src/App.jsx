@@ -72,6 +72,27 @@ function App() {
     }, 100); 
   }
 }, [activeSection]); 
+
+useEffect(() => {
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+  }
+}, [activeSection]); 
+
+useEffect(() => {
+  if (activeSection === 'homepage' && window.location.hash === '#faq') {
+    setTimeout(() => {
+      const el = document.getElementById('faq');
+      if (el) {
+        const headerHeight = 0;
+        const top = el.getBoundingClientRect().top + window.scrollY - headerHeight;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }, 300); 
+  }
+}, [activeSection]);
+
+
   return (
     <>
       <Header onNavigate={navigateTo} />
