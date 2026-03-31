@@ -40,6 +40,6 @@
   }
   to {
     /* Liikutetaan tasan puoleen väliin monistettua jonoa */
-    transform: translateX(-50%);
+    transform: translateX(-75%);
   }
 }

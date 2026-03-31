@@ -18,7 +18,7 @@ const PARTNERS = [
   
 ];
 
-const PARTNERS_DUPLICATED = [...PARTNERS, ...PARTNERS, ...PARTNERS];
+const PARTNERS_DUPLICATED = [...PARTNERS, ...PARTNERS, ...PARTNERS, ...PARTNERS]; // Monistetaan kolme kertaa, jotta saadaan riittävästi sisältöä
 
 const Partners = () => {
     return(
