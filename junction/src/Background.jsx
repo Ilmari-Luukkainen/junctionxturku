@@ -1,5 +1,5 @@
 import React from 'react'
-import LineWaves from './LineWaves'
+import LineWaves from './LineWavesTEMP.jsx'
 
 export default function Background() {
   return (
