@@ -1,14 +1,35 @@
+/* Keskittää videon sivulla */
+.video-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
 .custom-video {
+    /* Määritellään leveys */
     width: 90%;
     max-width: 90%;
+    
+    /* TÄRKEÄ: iFrame tarvitsee kuvasuhteen, jotta se ei näy pienenä neliönä */
+    aspect-ratio: 16 / 9; 
     height: auto;
+    
+    /* Ulkoasu alkuperäisen mukaan */
     border-radius: 12px;
     max-height: 80vh;
+    padding-top: 10svh;
+    
+    /* Poistetaan iframen oletusreunat */
+    border: none;
+    outline: none;
+
+    /* Estetään interaktio (jos haluat videon olevan vain taustalla) */
     pointer-events: none;
     transition: none;
-    padding-top: 10svh;
 
-    /*blur-effect*/
+    /* Alkuperäinen hieno maski-efektisi (liukuvärjätty häivytys) */
     mask-image: linear-gradient(
         to bottom,
         transparent 0%, 
@@ -27,4 +48,13 @@
         rgba(0, 0, 0, 0.6) 90%, 
         transparent 100%
     );
+}
+
+/* Valinnainen: jos haluat että video skaalautuu mobiilissa paremmin */
+@media (max-width: 768px) {
+    .custom-video {
+        width: 100%;
+        max-width: 85%;
+        border-radius: 0; /* Mobiilissa usein siistimpi ilman reunoja */
+    }
 }
