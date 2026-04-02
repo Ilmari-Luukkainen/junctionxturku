@@ -22,7 +22,7 @@ function Header({ onNavigate }) {
       title: "Contact",
       subtitle: "Have questions or want to collaborate? Connect with the Junction Turku team.",
       links: [
-        { label: "Instagram", path: "https://www.instagram.com/junctionturku" },
+        { label: "Instagram", path: "https://www.instagram.com/junctionxturku?igsh=N2dhbjJvd2wyMTlw" },
         { label: "LinkedIn", path: "https://www.linkedin.com/company/junction-x-turku/" },
         { label: "𝕏", path: "https://www.x.com/junctionturku" }
       ],
