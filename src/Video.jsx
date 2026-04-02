@@ -2,7 +2,7 @@ import './Video.css';
 
 export default function Video() {
     // Tässä on videon ID suoraan antamastasi linkistä
-    const videoId = "-HZa8mh3HgQ"; 
+    const videoId = "id tähän"; 
     
     // Parametrit: 
     // autoplay=1 (käynnistyy heti)
