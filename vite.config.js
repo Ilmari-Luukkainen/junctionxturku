@@ -5,5 +5,5 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   // Lisää tämä rivi. Käytä projektisi nimeä GitLabissa vinoviivojen välissä.
-  base: '/JunctionXTurku/', 
+  base: '/junctionxturku/', 
 })
