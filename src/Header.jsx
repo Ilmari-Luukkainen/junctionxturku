@@ -40,26 +40,17 @@ function Header({ onNavigate }) {
   const menuItemsRef = useRef([]);
   const menuTimelineRef = useRef(null);
 
+  // Scroll-logiikka optimoituna
   useEffect(() => {
     const header = headerRef.current;
-    if (!header) return undefined;
+    if (!header) return;
 
     let running = true;
     lastScrollYRef.current = window.scrollY;
-    headerOffsetRef.current = 0;
 
     const onScroll = () => {
-      if (!running) return;
-      if (isExpanded) {
-        header.style.transition = "";
-        header.style.transform = "translateY(0px)";
-        header.style.pointerEvents = "auto";
-        headerOffsetRef.current = 0;
-        lastScrollYRef.current = window.scrollY;
-        return;
-      }
+      if (!running || isExpanded) return;
 
-      header.style.transition = "none";
       const currentY = window.scrollY;
       const delta = currentY - lastScrollYRef.current;
       lastScrollYRef.current = currentY;
@@ -67,38 +58,32 @@ function Header({ onNavigate }) {
       const height = header.offsetHeight || 100;
       headerOffsetRef.current = Math.min(Math.max(headerOffsetRef.current + delta, 0), height);
 
-      if (currentY === 0) {
-        headerOffsetRef.current = 0;
-      }
+      if (currentY <= 0) headerOffsetRef.current = 0;
 
       header.style.transform = `translateY(-${headerOffsetRef.current}px)`;
       header.style.pointerEvents = headerOffsetRef.current >= height - 0.5 ? "none" : "auto";
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    header.style.transform = "translateY(0px)";
-
     return () => {
       running = false;
       window.removeEventListener("scroll", onScroll);
     };
   }, [isExpanded]);
 
-  const navigate = (path) => {
+  const handleNavigate = (path, event) => {
+    if (event) event.preventDefault();
     setIsMenuOpen(false);
-    setIsExpanded(false);
     menuTimelineRef.current?.reverse();
-    onNavigate(path);
+    setTimeout(() => {
+      setIsExpanded(false);
+      onNavigate(path);
+    }, 300);
   };
 
   useLayoutEffect(() => {
-    if (!menuPanelRef.current) return undefined;
-
-    gsap.set(menuPanelRef.current, {
-      autoAlpha: 0,
-      y: -8,
-      pointerEvents: "none",
-    });
+    if (!menuPanelRef.current) return;
+    gsap.set(menuPanelRef.current, { autoAlpha: 0, y: -8, pointerEvents: "none" });
 
     const tl = gsap.timeline({ paused: true });
     tl.to(menuPanelRef.current, {
@@ -110,43 +95,10 @@ function Header({ onNavigate }) {
     });
 
     menuTimelineRef.current = tl;
-    return () => { tl.kill(); };
+    return () => tl.kill();
   }, []);
 
-  useEffect(() => {
-    const onClickOutside = (event) => {
-      if (!isExpanded || !menuShellRef.current) return;
-      if (!menuShellRef.current.contains(event.target)) {
-        setIsMenuOpen(false);
-        menuTimelineRef.current?.eventCallback("onReverseComplete", () => {
-          setIsExpanded(false);
-        });
-        menuTimelineRef.current?.reverse();
-      }
-    };
-    document.addEventListener("mousedown", onClickOutside);
-    return () => document.removeEventListener("mousedown", onClickOutside);
-  }, [isExpanded]);
-
-  const toggleMenu = () => {
-    if (!menuTimelineRef.current) return;
-    if (!isExpanded) {
-      setIsMenuOpen(true);
-      setIsExpanded(true);
-      menuTimelineRef.current.play(0);
-      return;
-    }
-    setIsMenuOpen(false);
-    menuTimelineRef.current.eventCallback("onReverseComplete", () => {
-      setIsExpanded(false);
-    });
-    menuTimelineRef.current.reverse();
-  };
-
-  const setMenuItemRef = (index) => (element) => {
-    if (element) menuItemsRef.current[index] = element;
-  };
-
+  // Countdown-ajastin
   useEffect(() => {
     const target = new Date(2026, 9, 16, 0, 0, 0);
     const updateCountdown = () => {
@@ -160,35 +112,45 @@ function Header({ onNavigate }) {
         seconds: Math.floor((diff / 1000) % 60)
       });
     };
-    updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
     return () => clearInterval(interval);
   }, []);
 
-  const isCountdownActive = timeLeft.days > 0 || timeLeft.hours > 0 || timeLeft.minutes > 0 || timeLeft.seconds > 0;
+  const toggleMenu = () => {
+    if (!isExpanded) {
+      setIsMenuOpen(true);
+      setIsExpanded(true);
+      menuTimelineRef.current.play(0);
+    } else {
+      setIsMenuOpen(false);
+      menuTimelineRef.current.eventCallback("onReverseComplete", () => setIsExpanded(false));
+      menuTimelineRef.current.reverse();
+    }
+  };
 
   return (
-    <header ref={headerRef} className="header">
+    <header ref={headerRef} className="header" role="banner">
       <div className="header-left">
-        {/* Muutettu href muotoon #/ */}
-        <a
-          href="#/"
-          onClick={(event) => {
-            event.preventDefault();
-            navigate('/');
-          }}
-          aria-label="Etusivu"
+        <a 
+          href="/" 
+          onClick={(e) => handleNavigate('/', e)} 
+          aria-label="Junction Turku - Home"
         >
-          <img src={logo} alt="Turku X Junction" className="nav-logo" />
+          <img 
+            src={logo} 
+            alt="Junction Turku Logo" 
+            className="nav-logo" 
+            width="180" 
+            height="40"
+            loading="eager"
+          />
         </a>
       </div>
 
       <div className="header-center">
-        {isCountdownActive && (
-          <div className="countdown" aria-live="polite">
-            {timeLeft.days}d {String(timeLeft.hours).padStart(2,'0')}h {String(timeLeft.minutes).padStart(2,'0')}m {String(timeLeft.seconds).padStart(2,'0')}s
-          </div>
-        )}
+        <div className="countdown" aria-label="Countdown to event" role="timer">
+          {timeLeft.days}d {String(timeLeft.hours).padStart(2,'0')}h {String(timeLeft.minutes).padStart(2,'0')}m {String(timeLeft.seconds).padStart(2,'0')}s
+        </div>
       </div>
 
       <div className={`header-right ${isExpanded ? "open" : ""}`} ref={menuShellRef}>
@@ -196,67 +158,41 @@ function Header({ onNavigate }) {
           type="button"
           className={`header-hamburger ${isMenuOpen ? "open" : ""}`}
           onClick={toggleMenu}
-          aria-label={isMenuOpen ? "Sulje valikko" : "Avaa valikko"}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMenuOpen}
+          aria-controls="header-navigation"
         >
           <span className="header-hamburger-line" />
           <span className="header-hamburger-line" />
         </button>
 
         <nav
-          id="header-menu"
+          id="header-navigation"
           className={`header-dropdown ${isExpanded ? "open" : ""}`}
           ref={menuPanelRef}
+          aria-hidden={!isMenuOpen}
         >
-          {menuSections.map((section, sectionIndex) => (
-            <div className="header-menu-card" key={section.title} ref={setMenuItemRef(sectionIndex)}>
-              <div className="header-menu-title">{section.title}</div>
-              <div className="header-menu-subtitle">{section.subtitle}</div>
+          {menuSections.map((section) => (
+            <section className="header-menu-card" key={section.title}>
+              <h2 className="header-menu-title">{section.title}</h2>
+              <p className="header-menu-subtitle">{section.subtitle}</p>
 
               <div className="header-menu-links">
                 {section.links.map((link) => {
-                  const isExternal = /^(https?:)?\/\//.test(link.path);
-                  
+                  const isExternal = link.path.startsWith('http');
                   return (
                     <a
                       key={link.path}
-                      // Lisätään # sisäisille linkeille hrefiin, jotta hiiren kakkospainike/uusi välilehti toimii
-                      href={isExternal ? link.path : `#${link.path}`}
+                      href={isExternal ? link.path : link.path}
                       {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                      onClick={(event) => {
-                        if (isExternal) return;
-                        event.preventDefault();
-
-                        // Katsotaan onko linkissä ankkuri (esim. /#faq)
-                        if (link.path.includes('#')) {
-                          const [pathPart, hashPart] = link.path.split('#');
-                          // Jos ollaan jo kyseisellä sivulla (esim. etusivulla), skrollataan suoraan
-                          const currentPath = window.location.hash.replace('#', '').split('#')[0] || '/';
-                          
-                          if (currentPath === pathPart || (pathPart === '/' && currentPath === '')) {
-                            const el = document.getElementById(hashPart);
-                            if (el) {
-                              el.scrollIntoView({ behavior: 'smooth' });
-                            }
-                          } else {
-                            // Muuten navigoidaan koko polkuun (App.jsx hoitaa skrollauksen latauksen jälkeen)
-                            navigate(link.path);
-                          }
-                        } else {
-                          navigate(link.path);
-                        }
-
-                        setIsMenuOpen(false);
-                        menuTimelineRef.current?.reverse();
-                        setTimeout(() => setIsExpanded(false), 300);
-                      }}
+                      onClick={(e) => !isExternal && handleNavigate(link.path, e)}
                     >
                       {link.label}
                     </a>
                   );
                 })}
               </div>
-            </div>
+            </section>
           ))}
         </nav>
       </div>

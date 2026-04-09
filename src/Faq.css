@@ -1,11 +1,12 @@
 .faq-container {
   background: transparent; 
-  min-height: 100vh;
+  width: 100%;
   padding: 2rem;
-  font-family: 'Courier New', Courier, monospace;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
+  contain: content; /* Tehokkuus: selain optimoi renderöinnin */
 }
 
 .faq-title {
@@ -17,12 +18,17 @@
   text-transform: uppercase;
   text-shadow: 0 2px 10px rgba(0,0,0,0.5);
   padding-top: 10svh;
-  font-family: 'Montserrat', semibold;
+  font-family: 'Montserrat', sans-serif; /* Korjattu fonttimääritys */
+  text-align: center;
+}
+
+.faq-list {
+  width: min(100%, 900px);
 }
 
 .faq-item {
   margin-bottom: 1rem;
-  width: min(100%, 900px);
+  width: 100%;
 }
 
 .faq-button {
@@ -36,11 +42,10 @@
   border: 1px solid rgba(255, 255, 255, 0.1); 
   border-radius: 4px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   backdrop-filter: blur(8px); 
   box-shadow: 0 4px 20px rgba(88, 28, 135, 0.2); 
-  font-family: 'Montserrat', semibold;
-
+  font-family: 'Montserrat', sans-serif;
 }
 
 .faq-button:hover {
@@ -55,12 +60,12 @@
   font-size: 0.9rem;
   letter-spacing: 0.05em;
   text-align: left;
-  font-family: 'Montserrat', semibold;
 }
 
 .faq-icon {
   font-size: 1.5rem;
   font-weight: 300;
+  margin-left: 1rem;
 }
 
 .faq-answer {
@@ -71,10 +76,14 @@
   border-radius: 4px;
   font-size: 1rem;
   line-height: 1.6;
-  border-left: 2px solid rgba(88, 28, 135, 0.6);
+  border-left: 3px solid rgba(88, 28, 135, 0.8);
   backdrop-filter: blur(4px);
-  font-family: 'Lato Normal';
+  font-family: 'Lato', sans-serif;
+}
 
+/* Näytetään vastaus kun se ei ole hidden */
+.faq-answer:not([hidden]) {
+  display: block;
   animation: fadeIn 0.3s ease-out;
 }
 
@@ -87,5 +96,9 @@
   .faq-title {
     font-size: 1.8rem;
     padding-top: 5svh;
+  }
+  
+  .faq-button {
+    padding: 1.2rem 1.5rem;
   }
 }

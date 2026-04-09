@@ -4,9 +4,24 @@ import BorderGlow from './Borderglow.jsx'
 
 export default function Landingpage() {
   return (
-    <div className="landing-container">
+    <section className="landing-container">
       <div className="content-wrapper">
-        <h67 className="landing-header">
+        <h1 className="landing-header">
+          {/* SEO-optimoitu piilotettu teksti: Google näkee tämän heti, 
+              mutta se ei näy ruudulla eikä sotke animaatiota. */}
+          <span style={{
+            position: 'absolute',
+            width: '1px',
+            height: '1px',
+            padding: '0',
+            margin: '-1px',
+            overflow: 'hidden',
+            clip: 'rect(0, 0, 0, 0)',
+            border: '0'
+          }}>
+            JunctionX Turku 2026 - 
+          </span>
+
           <div className="decrypted-text">
             <DecryptedText
               text="Hack the Future!"
@@ -16,7 +31,8 @@ export default function Landingpage() {
               useOriginalCharsOnly
             />
           </div>
-        </h67>
+        </h1>
+
         <BorderGlow
           edgeSensitivity={30}
           glowColor="320 100 70"
@@ -28,18 +44,19 @@ export default function Landingpage() {
           animated={true}
           colors={['#df1bae', '#2aef61', '#2aef61']}
         >
-          {/* <div style={{ padding: '0px' }}>
+           {/*<div style={{ padding: '0px' }}>
             <button className="register-button">Register</button>
-          </div> */}
-          </BorderGlow>
+          </div>*/}
+        </BorderGlow>
       </div>
+
       <div className="bottom-bar">
           <div className="bar-texts">
-              <p className="bar-text-left"> 16-18 October</p>
-              <div className="bar-line"></div>
-              <p className="bar-text-right"> Turku, Finland</p>
+              <time className="bar-text-left" dateTime="2026-10-16">16-18 October</time>
+              <div className="bar-line" role="presentation"></div>
+              <p className="bar-text-right">Turku, Finland</p>
           </div>
       </div>
-    </div>
+    </section>
   )
 }

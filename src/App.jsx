@@ -18,20 +18,20 @@ const routes = {
   '/about': 'about'
 }
 
-// Apufunktio, joka päättelee nykyisen sivun hashin perusteella
+// SEO-otsikot eri sivuille
+const pageTitles = {
+  homepage: 'JunctionX Turku 2026 | The Ultimate Tech Hackathon',
+  challenges: 'Challenges | JunctionX Turku 2026',
+  about: 'About Us | JunctionX Turku 2026'
+}
+
 const resolvePath = () => {
-  // Haetaan hash (esim. "#/challenges") ja poistetaan ensimmäinen "#"
-  // Jos hashia ei ole, oletus on "/"
   const currentHash = window.location.hash.replace('#', '') || '/';
-  
-  // Jos hash sisältää ankkurin (esim. #/homepage#faq), otetaan vain reittiosa
   const pathPart = currentHash.split('#')[0];
-  
   return routes[pathPart] ?? 'homepage';
 };
 
 function App() {
-  // Alustetaan tila suoraan osoiterivin hashista
   const [activeSection, setActiveSection] = useState(() => resolvePath())
   const [showTop, setShowTop] = useState(false);
 
@@ -40,61 +40,43 @@ function App() {
   }
 
   const navigateTo = (path) => {
-    // Navigointi tapahtuu muuttamalla hashia, jolloin GitHub Pages pysyy index.html-sivulla
     window.location.hash = path;
   }
 
+  // SEO: Päivitetään sivun otsikko aina kun näkymä vaihtuu
   useEffect(() => {
-    const onHashChange = () => {
-      renderView()
-    }
+    document.title = pageTitles[activeSection] || 'JunctionX Turku';
+  }, [activeSection]);
 
-    // Kuunnellaan hashin muuttumista (toimii back-nappulalla ja navigateTo-funktiolla)
+  useEffect(() => {
+    const onHashChange = () => renderView()
     window.addEventListener('hashchange', onHashChange)
-    
-    // Varmistetaan oikea näkymä ladattaessa
     renderView()
-
-    return () => {
-      window.removeEventListener('hashchange', onHashChange)
-    }
+    return () => window.removeEventListener('hashchange', onHashChange)
   }, [])
 
   useEffect(() => {
-    const onScroll = () => {
-      setShowTop(window.scrollY > 120);
-    };
-
+    const onScroll = () => setShowTop(window.scrollY > 120);
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Scrollaus-logiikka haasteiden ankkureille
   useEffect(() => {
     if (activeSection === 'challenges' && window.location.hash.includes('#', 2)) {
       setTimeout(() => {
         const parts = window.location.hash.split('#');
         const id = parts[parts.length - 1];
         const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
       }, 100); 
     }
   }, [activeSection]); 
 
-  // Skrollaa ylös sivun vaihdossa, jos ei ole ankkuria
   useEffect(() => {
-    // Jos hashissa on vain yksi '#' (eli reitti), skrollaa ylös
     const hashCount = (window.location.hash.match(/#/g) || []).length;
-    if (hashCount <= 1) {
-      window.scrollTo(0, 0);
-    }
+    if (hashCount <= 1) window.scrollTo(0, 0);
   }, [activeSection]); 
 
-  // FAQ skrollaus etusivulla
   useEffect(() => {
     if (activeSection === 'homepage' && window.location.hash.endsWith('#faq')) {
       setTimeout(() => {
@@ -110,35 +92,37 @@ function App() {
   return (
     <>
       <Header onNavigate={navigateTo} />
-      <main className="view-container">
+      
+      {/* Käytetään main-elementtiä hakukoneita varten */}
+      <main className="view-container" id="main-content">
+        
         {activeSection === 'homepage' && (
-          <section id="homepage">
+          <article id="homepage">
             <Background />
             <Landingpage />
             <div className="blur-overlay"></div>
             <Video /> 
             <ChallengeBlocks onNavigate={navigateTo}/>
-            {/* <Partners /> */}
+            {/* <Partners />  */}
             <InfoCards />
             <FAQ />
-          </section>
+          </article>
         )}
 
         {activeSection === 'challenges' && (
-          <section id="challenges">
+          <article id="challenges">
             <ChallengesPage />
-          </section>
+          </article>
         )}
-
 
         {activeSection === 'about' && (
-          <section id="about">
+          <article id="about">
             <About />
-          </section>
+          </article>
         )}
+        
       </main>
 
-      {/* Back to top button */}
       {typeof window !== 'undefined' && (
         <button
           className={`back-to-top ${showTop ? 'visible' : ''}`}

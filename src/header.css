@@ -1,4 +1,4 @@
-
+/* Pääkontti - Optimoitu suorituskyvylle */
 .header {
   position: fixed;
   top: 0;
@@ -8,87 +8,93 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1000;
-  background: rgba(20, 19, 19, 0.75);
+  background: rgba(15, 10, 20, 0.75); /* Syvempi tumma kontrasti */
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
-  border-bottom: 0px solid black;
   padding: 12px 20px;
-  height: 100px;
+  height: 140px;
   box-sizing: border-box;
   font-family: 'Montserrat', semibold;
+  will-change: transform; /* GPU-kiihdytys */
 }
 
 @media (prefers-color-scheme: dark) {
   .header {
-    background: rgba(22, 23, 29, 0.45);
+    background: rgba(15, 10, 20, 0.45);
   }
 }
 
-.header.show {
-  transform: translateY(0);
-}
-
-.header.hide {
-  transform: translateY(-100%);
-}
-
-/* Layout: logo left, nav centered */
-.header .header-left {
+/* Asettelu: Logo vasen, nav keskellä */
+.header-left {
   display: flex;
   align-items: center;
+  min-width: 180px; /* Estää CLS:n */
 }
 
 .header-right {
   position: absolute;
   right: 5%;
-
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
-/* Header center*/
+/* Header center - Nostetaan hieman ylemmäs jos tarpeen, jotta tila riittää */
 .header-center {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
+  z-index: 10;
 }
-/* Header countdown*/
+
+/* Countdown - Ultra-versio */
 .countdown {
-  font-weight: 600;
-  color: white;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 20px 100px;
-  border-radius: 6px;
-  font-family: 'montserrat', semibold;
+  font-weight: 900; /* Maksimi paksuus */
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.6);
+  
+  /* MASSiivinen KOKO */
+  font-size: 1.8rem; /* Huomattavasti isompi */
+  padding: 12px 45px;
+  
+  border-radius: 12px;
+  border: 2px solid rgba(217, 70, 239, 0.3); /* Lisätty hienovarainen pinkki reuna teeman mukaan */
+  
+  /* Typografia-optimointi */
+  letter-spacing: 2px;
+  font-variant-numeric: tabular-nums; 
+  text-transform: uppercase;
+  
+  /* Efektit */
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), 
+              0 0 15px rgba(217, 70, 239, 0.1); /* Kevyt pinkki hohde */
+  
+  transition: all 0.3s ease;
 }
 
-/* Nav logo*/
-.header .nav-logo {
-  height: 90px;
+/* Logo-optimointi */
+.nav-logo {
+  height: 100px; /* Säädetty järkevämpään kokoon */
   width: auto;
-  display: inline-block;
-  vertical-align: middle;
+  display: block;
+  transition: opacity 0.3s ease;
 }
 
-.header-dropdown a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
+.nav-logo:hover {
+  opacity: 0.8;
 }
 
+/* Hamburger-painike */
 .header-hamburger {
-  width: 44px;
-  height: 44px;
-  border: 0px solid rgba(255, 255, 255, 0);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: transparent;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -96,38 +102,39 @@
   align-items: center;
   gap: 6px;
   color: white;
+  transition: color 0.3s ease;
 }
 
 .header-hamburger-line {
-  width: 24px;
+  width: 28px;
   height: 2px;
   background: currentColor;
-  transition: transform 0.25s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.header-hamburger.open .header-hamburger-line:first-child {
-  transform: translateY(4px) rotate(45deg);
+.header-hamburger.open .header-hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
 }
 
-.header-hamburger.open .header-hamburger-line:last-child {
-  transform: translateY(-4px) rotate(-45deg);
+.header-hamburger.open .header-hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
 }
 
+.header-hamburger.open .header-hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Pudotusvalikko - Kuten kuvassasi */
 .header-dropdown {
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + 15px);
   right: 0;
   width: min(900px, 92vw);
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  background: rgba(255, 255, 255, 0);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  border: 0px solid black;
-  border-radius: 12px;
-  padding: 10px;
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.16);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  background: transparent;
   transform-origin: top right;
   visibility: hidden;
   opacity: 0;
@@ -136,172 +143,153 @@
 
 .header-dropdown.open {
   visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
 }
 
+/* Valikkokortit väreillä */
 .header-menu-card {
+  border-radius: 16px;
   text-align: left;
-  padding: 12px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0);
-  border: 0px solid rgba(255, 255, 255, 0);
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  opacity: 0;
-  transform: translateY(14px);
-  transition:
-    opacity 0.32s ease,
-    transform 0.32s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.header-dropdown.open .header-menu-card {
-  opacity: 1;
-  transform: translateY(0);
-}
 
-.header-dropdown.open .header-menu-card:nth-child(1) {
-  transition-delay: 0.08s;
-      background: #600b4b;
-}
 
-.header-dropdown.open .header-menu-card:nth-child(2) {
-  transition-delay: 0.22s;
-      background: #310626;
-}
-
-.header-dropdown.open .header-menu-card:nth-child(3) {
-  transition-delay: 0.36s;
-      background: #000000;
-}
+/* Värit portaittain kuten kuvassasi */
+.header-dropdown .header-menu-card:nth-child(1) { background: #600b4b; }
+.header-dropdown .header-menu-card:nth-child(2) { background: #310626; }
+.header-dropdown .header-menu-card:nth-child(3) { background: #000000; }
 
 .header-menu-title {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 1.2rem;
   color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-left: 5%;
 }
 
 .header-menu-subtitle {
-  font-size: 13px;
-  line-height: 1.35;
-  color: white;
-  min-height: 34px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.7);
+  min-height: 40px;
+  padding-left: 5%;
 }
 
+/* Linkit valikon sisällä */
 .header-menu-links {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
+  width: 90%;
+  padding-left: 5%;
+  padding-bottom: 2%;
 }
 
 .header-dropdown a {
   color: white;
   text-decoration: none;
   font-weight: 600;
-  padding: 7px 10px;
+  padding: 10px 14px;
   border-radius: 8px;
-  background: rgba(38, 33, 33, 0.9); /* Lähes musta */
-  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  display: block;
 }
 
 .header-dropdown a:hover {
-  background: var(--accent-bg);
+  background: #d946ef; /* Pinkki korostus */
+  transform: translateX(5px);
 }
 
-@media (prefers-color-scheme: dark) {
-  .header-hamburger {
-    background: rgba(22, 23, 29, 0.72);
-    border-color: rgba(255, 255, 255, 0.12);
+
+
+@media (max-width: 768px) {
+  .header {
+    height: 100px; /* Laskettu hieman (oli 140px), jotta sisältö nousee ylemmäs */
+    padding: 0 15px;
+    justify-content: space-between;
   }
 
+  .header-left {
+    min-width: auto;
+    flex: 0 0 auto;
+  }
+
+  .nav-logo {
+    height: 60px; /* Tiivistetty logo */
+  }
+
+  .header-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+  }
+
+  .countdown {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border-width: 1px;
+  }
+
+  .header-right {
+    position: relative;
+    right: 0;
+    flex: 0 0 auto;
+  }
+
+  .header-hamburger {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* --- MOBIILIVALIKON TIIVISTYS --- */
   .header-dropdown {
-    background: rgba(22, 23, 29, 0.45);
-    -webkit-backdrop-filter: blur(14px);
-    backdrop-filter: blur(14px);
+    width: 85vw; /* Levennetty, jotta teksti mahtuu vähemmille riveille */
+    grid-template-columns: 1fr;
+    top: 90px; /* Lähempänä headeria */
+    gap: 8px; /* Pienempi rako laatikoiden välillä */
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 8px;
   }
 
   .header-menu-card {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.08);
+    padding: 10px 12px; /* Erittäin tiivis padding */
+    gap: 4px; /* Vähemmän tyhjää otsikon ja tekstin väliin */
+    height: auto;
   }
 
-  .header-dropdown a {
-    background: rgba(255, 255, 255, 0.08);
-
-  }
-}
-
-@media (max-width: 768px) {
-  .header-right {
-    right: 20px;
-  }
-
-  .header-dropdown {
-    width: min(300px, 80vw);
-    grid-template-columns: 1fr;
+  .header-menu-title {
+    font-size: 0.95rem; /* Pienempi fontti */
+    padding-left: 0; /* Poistettu ylimääräinen tila */
   }
 
   .header-menu-subtitle {
-    min-height: 0;
+    font-size: 0.75rem; /* Pienempi fontti */
+    min-height: 0; /* TÄRKEÄ: Poistaa pakotetun tyhjän tilan */
+    line-height: 1.2;
+    padding-left: 0;
+    margin-bottom: 4px;
   }
-  /* Make countdown compact on mobile */
-  .countdown {
-    padding: 8px 16px;
-    font-size: 14px;
+
+  .header-menu-links {
+    width: 100%;
+    padding-left: 0;
+    padding-bottom: 0;
+    gap: 4px;
+  }
+
+  .header-dropdown a {
+    padding: 6px 10px; /* Matalammat painikkeet */
+    font-size: 0.8rem;
     border-radius: 6px;
-    max-width: 60vw;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 }
 
-@media (max-width: 420px) {
-  .countdown {
-    padding: 6px 10px;
-    font-size: 13px;
-    max-width: 72vw;
-  }
-}
-
-/* Back-to-top button (mobile only) */
-.back-to-top {
-  position: fixed;
-  right: 12px;
-  bottom: 12px;
-  width: 56px;
-  height: 56px;
-  border-radius: 56px;
-  background: rgba(255,255,255,0);
-  color: white;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-
-  border: 2;
-  cursor: pointer;
-  font-weight: 700;
-  transform: translateY(12px) scale(0.98);
-  opacity: 0;
-  transition: opacity 220ms ease, transform 220ms cubic-bezier(.2,.9,.2,1);
-  z-index: 1000;
-}
-
-.back-to-top .back-to-top-label {
-  font-size: 11px;
-  line-height: 1;
-}
-
-.back-to-top .back-to-top-arrow {
-  font-size: 12px;
-  line-height: 1;
-}
-
-@media (max-width: 1049px) {
-  .back-to-top { display: flex; }
-  .back-to-top.visible { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@media (min-width: 1050px) {
-  .back-to-top { display: none !important; }
-}

@@ -232,3 +232,43 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* --- TÄSTÄ ALKAA BACK TO TOP NAPIN KORJAUS --- */
+
+.back-to-top {
+  position: fixed;    /* Tämä pitää napin näytöllä kelauksen mukana */
+  bottom: 30px;       /* Etäisyys pohjasta */
+  right: 30px;        /* Etäisyys oikeasta reunasta */
+  z-index: 1000;      /* Varmistaa, että nappi on muiden elementtien päällä */
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  color: #fff;
+  border: 1px solid var(--border);
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  
+  /* Piilotus oletuksena (muuttuu visible-luokan myötä) */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
+}
+
+/* Näytetään nappi kun JS lisää sille visible-luokan */
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top-label {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.back-to-top-arrow {
+  font-size: 18px;
+}

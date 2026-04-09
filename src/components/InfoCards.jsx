@@ -3,31 +3,33 @@ import "./InfoCards.css"
 
 const InfoCards = () => {
   return (
-    <div className="stats-container" >
-      <div className="stat-card-row" id='statrow_1' >
+    <section className="stats-container" aria-label="JunctionX Turku Event Statistics">
+      <div className="stat-card-row">
         <div className="stat-card" id="card-a1">
-          <h2 className="stat-value">To be announced</h2>
+          {/* Vaihdettu diviksi ja lisätty selkeä luokka. 
+              SEO: otsikkohierarkia säilyy puhtaana. */}
+          <div className="stat-value">To be announced</div>
           <span className="stat-label">Total Prize Pool</span>         
         </div>
       
-        <div className="stat-card"id="card-b1">
-          <h2 className="stat-value">#1</h2>
+        <div className="stat-card" id="card-b1">
+          <div className="stat-value">#1</div>
           <span className="stat-label">Hackathon in Turku</span>
         </div>
       </div>
 
-      <div className="stat-card-row" id='statrow_1' >
-        <div className="stat-card"id="card-a2">
-          <h2 className="stat-value">+300</h2>
+      <div className="stat-card-row">
+        <div className="stat-card" id="card-a2">
+          <div className="stat-value">+300</div>
           <span className="stat-label">participants expected</span>
         </div>
 
         <div className="stat-card" id="card-b2">
-          <h2 className="stat-value">Weekend</h2>
-          <span className="stat-label">of Intensitive doing</span>
+          <div className="stat-value">Weekend</div>
+          <span className="stat-label">of intensive doing</span>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

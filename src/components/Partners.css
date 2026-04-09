@@ -1,12 +1,18 @@
+/* Estää reflow-laskentaa ja parantaa tehokkuutta */
 .partners {
   padding-top: 10svh;
+  width: 100%;
+  overflow: hidden;
+  contain: content;
+  padding-bottom: 10svh;
 }
 
 #our-partners {
+  font-family: 'Montserrat', sans-serif;
   font-size: 32px;
   font-weight: 500;
   margin: 0 0 12px 20px;
-  color:aliceblue
+  color: aliceblue;
 }
 
 .carousel {
@@ -15,50 +21,41 @@
   overflow: hidden;
   display: flex;
   position: relative;
-}
-
-.partners {
-  padding-top: 10svh;
-}
-
-#our-partners {
-  font-size: 32px;
-  font-weight: 500;
-  margin: 0 0 12px 20px;
-  color:aliceblue
-}
-
-.carousel {
-  margin: 0 auto;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  position: relative;
+  /* Pehmeä häivytys reunoille, jotta logot eivät katkea seinään */
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
 .partners-grid {
   display: flex;
-  width: max-content; /* TÄRKEÄ: estää rivittymisen */
+  width: max-content;
+  /* GPU-kiihdytys ja sulavuus */
   animation: spin 30s linear infinite;
-  gap: 0; /* Jos käytät gapia, se on oltava sama molemmilla puolilla */
-  will-change: transform; /* Parantaa animaation suorituskykyä */
+  will-change: transform;
+  transform: translateZ(0); 
+  backface-visibility: hidden;
 }
 
 .partner-card {
   padding: 36px 24px;
-  display: inline-block;
-  height: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  cursor: default;
-  position: relative;
-  overflow: hidden;
   flex-shrink: 0;
   min-width: 180px;
+  height: 100%;
+  cursor: default;
 }
 
+/* SEO/Tehokkuus: Vältetään turhia filttereitä jos mahdollista, 
+   mutta pidetään tämä aaes-logolle */
 .partner-card img[src*="aaes"] {
   filter: brightness(0) invert(1);
+}
+
+.partner-card img {
+  pointer-events: none; /* Estää vahinkovedon kuvasta */
+  object-fit: contain;
 }
 
 @keyframes spin {
@@ -66,21 +63,36 @@
     transform: translateX(0);
   }
   to {
-    /* Tämä siirtää listaa tasan yhden kokonaisen setin verran */
+    /* Siirretään tasan puolet duplikoidun listan pituudesta */
     transform: translateX(-50%);
   }
 }
 
-.partner-card {
-  padding: 36px 24px;
-  display: inline-block;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  cursor: default;
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
+/* Mobiilioptimointi: pienemmät tekstit ja välit */
+@media (max-width: 768px) {
+  #our-partners {
+    font-size: 24px;
+    margin-left: 15px;
+  }
+  
+  .partner-card {
+    padding: 20px 15px;
+    min-width: 140px;
+  }
+
+  .partner-card img {
+    height: 30px !important;
+  }
+
+  .partners{
+    padding-top: 5svh;
+    padding-bottom: 5svh;
+  }
 }
 
-
+@media (min-width: 768px) and (max-width: 1024px) {
+  .partners {
+    padding-top: 7svh;
+    padding-bottom: 0svh;
+  }
+}

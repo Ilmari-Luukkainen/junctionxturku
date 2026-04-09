@@ -1,17 +1,21 @@
+/* Estää laskuvirheet leveyksissä koko tiedostossa */
+.info-container, .info-container * {
+  box-sizing: border-box;
+}
 
 .info-container {
   min-height: 100vh;
   background-color: #0f0a14;
   color: #e0e0e0;
-  font-family: 'Inter', -apple-system, sans-serif;
   position: relative;
   overflow-x: hidden;
-  padding: 80px 20px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 15px;
 }
 
-
+/* Taustan glow-efektit */
 .bg-glow {
   position: fixed;
   width: 60vw;
@@ -23,150 +27,155 @@
   opacity: 0.15;
 }
 
-.top-glow {
-  top: -20%;
-  left: -10%;
-  background: radial-gradient(circle, #d946ef, transparent);
-}
-
-.bottom-glow {
-  bottom: -10%;
-  right: -5%;
-  background: radial-gradient(circle, #d946ef, transparent);
-}
+.top-glow { top: -20%; left: -10%; background: radial-gradient(circle, #d946ef, transparent); }
+.bottom-glow { bottom: -10%; right: -5%; background: radial-gradient(circle, #d946ef, transparent); }
 
 .info-content {
   position: relative;
   z-index: 1;
-  max-width: 900px;
-  width: 100%;
+  /* Nostettu 1000px asti, jotta laatikot voivat olla leveitä tietokoneella */
+  max-width: 80%; 
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .info-header {
   margin-bottom: 60px;
   margin-top: 30px;
+  text-align: center;
+  width: 100%;
 }
 
 .accent-line {
   width: 40px;
   height: 4px;
   background-color: #d946ef;
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
 }
 
-.info-header h1 {
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
+.info-header h2 {
+  font-family: "Montserrat", semibold;
+  font-size: clamp(2.2rem, 8vw, 4.5rem);
   font-weight: 900;
-  line-height: 0.9;
-  letter-spacing: -3px;
+  line-height: 1;
+  letter-spacing: -2px;
   margin: 0 0 20px 0;
   color: #ffffff;
+  text-transform: uppercase;
 }
 
-.text-highlight {
-  color: #d946ef;
-}
-
-.subtitle {
-  font-size: 1.2rem;
+.info-subtitle {
+  font-size: 1.1rem;
   color: #9ca3af;
-  max-width: 600px;
-  line-height: 1.6;
+  text-decoration: none;
+  margin-top: -10px;
+  display: block;
 }
 
-
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  margin-bottom: 80px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  padding-bottom: 40px;
+/* TIIMILAATIKKO - Aina allekkain, mutta leveys säätyy */
+.team-grid {
+  display: flex;
+  flex-direction: column; /* Tämä pakottaa laatikot aina allekkain */
+  align-items: center;
+  width: 100%;
 }
-
-.step-num {
-  font-family: monospace;
-  color: #d946ef;
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-
-.info-item h3 {
-  font-size: 1.5rem;
-  margin: 10px 0;
-  color: #fff;
-}
-
-.info-item p {
-  color: #9ca3af;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
 
 .team-box {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 40px;
-  border-radius: 20px;
+  padding: 60px 40px; /* Runsaasti tilaa tietokoneella */
+  border-radius: 24px;
   backdrop-filter: blur(10px);
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  width: 100%; /* Käyttää info-contentin leveyden (max 1000px) */
+  transition: background 0.3s ease;
 }
 
-.team-box h2 {
-  font-size: 1.2rem;
+.team-box:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* KUVA NOUSU TÄSSÄ */
+.team-box:hover .team-image {
+  transform: translateY(-10px);
+}
+
+.role-title {
+  font-size: clamp(1.5rem, 4vw, 2.2rem); /* Suurempi otsikko tietokoneella */
+  font-family: "Montserrat", semibold;
+  font-weight: 700;
   letter-spacing: 2px;
   color: #fff;
-  margin-bottom: 20px; 
-  margin-top: 10px;
+  margin-bottom: 25px; 
+  text-transform: uppercase;
 }
 
+.member-name {
+  font-size: 1.4rem;
+  font-family: "Montserrat", semibold;
+  color: #fff;
+  margin-top: 15px;
+  font-weight: 400;
+}
 
 .team-image {
-  width: 240px;
-  height: 240px; 
-  margin: 0 auto 25px auto; 
+  /* Skaalautuu 160px (mobiili) -> 280px (tietokone) */
+  width: clamp(160px, 30vw, 280px); 
+  height: clamp(160px, 30vw, 280px); 
+  margin: 0 auto; 
   border-radius: 50%; 
-  border: 3px solid #d946ef; 
-  box-shadow: 0 0 20px rgba(217, 70, 239, 0.3);
+  border: 4px solid #d946ef; 
+  box-shadow: 0 0 30px rgba(217, 70, 239, 0.4);
   background: #1a151f; 
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
+  transition: transform 0.3s ease; /* Animaatio nousulle */
 }
 
 .team-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
-  transition: transform 0.5s ease;
-  filter: none; 
-  transform: scale(1); 
+  object-fit: cover;
 }
 
-.team-box:hover .team-image img {
-  transform: scale(1.1);
+.info-link {
+  text-decoration: none;
 }
 
-
-
-
-
+/* MOBIILI-ERITYISSÄÄDÖT */
 @media (max-width: 768px) {
-  .info-header h1 {
-    font-size: 3rem;
+  .info-container {
+    padding: 60px 15px;
   }
-}
 
-@media (min-width:580px) and (max-width: 870px) {
-  .info-grid {
-    grid-template-columns: 1fr;
-    gap: 30px; 
+  .team-box {
+    padding: 30px 20px; /* Pienempi padding mobiilissa, jotta ei mene yli */
+    border-radius: 20px;
+    margin-bottom: 50px;
   }
-  .info-item {
-    text-align: center;
+
+  .info-content {
+    width: 80%;
+    max-width: 100%;
+  }
+
+   .role-title {
+    font-size: clamp(1.2rem, 5vw, 1.8rem); /* Pienempi otsikko mobiilissa */
+    margin-bottom: 15px;
+  }
+
+  .role-title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  .member-name {
+    font-size: 1.1rem;
   }
 }

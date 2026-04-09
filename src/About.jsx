@@ -3,86 +3,90 @@ import './About.css';
 
 const About = () => {
   return (
-    <div className="info-container">
-      <div className="bg-glow top-glow"></div>
-      <div className="bg-glow bottom-glow"></div>
+    <section className="info-container">
+      <div className="bg-glow top-glow" aria-hidden="true"></div>
+      <div className="bg-glow bottom-glow" aria-hidden="true"></div>
 
       <div className="info-content">
         <header className="info-header">
           <div className="accent-line"></div>
-          <h1>MEET THE TEAM </h1>
-            <a href="mailto:contact@junctionxturku.com" className="info-link"><p className="info-subtitle">contact@junctionxturku.com</p></a> 
+          {/* Vaihdettu h2:ksi, koska Landingpage on jo h1. 
+              Lisätty JunctionX Turku kontekstia. */}
+          <h1>MEET THE TEAM</h1>
+          <a href="mailto:contact@junctionxturku.com" className="info-link">
+            <p className="info-subtitle">contact@junctionxturku.com</p>
+          </a> 
+        </header>
 
-           </header>
-
-
-        
-        <div className="team-box">
-            <h2>Executive Director</h2>
-        <div className="team-image">
-            <img src="./questionmark.png"/> 
-        </div>
-            <p><h2>Rafael Raoult</h2></p>
-        </div>
+        <div className="team-grid"> {/* Suositus: käytä grid-luokkaa CSS:ssä */}
+          
+          <div className="team-box">
+            <h3 className="role-title">Executive Director</h3>
+            <div className="team-image">
+              <img src="./questionmark.webp" alt="Rafael Raoult - Executive Director of JunctionX Turku" /> 
+            </div>
+            <h3 className="member-name">Rafael Raoult</h3>
+          </div>
   
-        <div className="team-box">
-            <h2>Head of Finance</h2>
-        <div className="team-image">
-            <img src="./questionmark.png"/> 
-        </div>
-            <p><h2>Kristian Kuismin</h2></p>
-        </div>
+          <div className="team-box">
+            <h3 className="role-title">Head of Finance</h3>
+            <div className="team-image">
+              <img src="./questionmark.webp" alt="Kristian Kuismin - Head of Finance" /> 
+            </div>
+            <h3 className="member-name">Kristian Kuismin</h3>
+          </div>
 
-        <div className="team-box">
-            <h2>Head of Operations</h2>
-        <div className="team-image">
-            <img src="./questionmark.png"/> 
-        </div>
-            <p><h2>Akseli Hakanen</h2></p>
-        </div>
+          <div className="team-box">
+            <h3 className="role-title">Head of Operations</h3>
+            <div className="team-image">
+              <img src="./questionmark.webp" alt="Akseli Hakanen - Head of Operations" /> 
+            </div>
+            <h3 className="member-name">Akseli Hakanen</h3>
+          </div>
 
-        <div className="team-box">
-            <h2>Head of Partnerships</h2>
-        <div className="team-image">
-            <img src="./questionmark.png"/> 
-        </div>
-            <p><h2>Tomi Räsänen</h2></p>
-        </div>
+          <div className="team-box">
+            <h3 className="role-title">Head of Partnerships</h3>
+            <div className="team-image">
+              <img src="./questionmark.webp" alt="Tomi Räsänen - Head of Partnerships" /> 
+            </div>
+            <h3 className="member-name">Tomi Räsänen</h3>
+          </div>
   
-        <div className="team-box">
-            <h2>Head of Partnerships</h2>
-        <div className="team-image">
-            <img src="./questionmark.png"/> 
-        </div>
-            <p><h2>Eino Vuopala</h2></p>
-        </div>
+          <div className="team-box">
+            <h3 className="role-title">Head of Partnerships</h3>
+            <div className="team-image">
+              <img src="./questionmark.webp" alt="Eino Vuopala - Head of Partnerships" /> 
+            </div>
+            <h3 className="member-name">Eino Vuopala</h3>
+          </div>
 
-        <div className="team-box">
-            <h2>Head of Communications</h2>
-        <div className="team-image">
-            <img src="./questionmark.png"/> 
-        </div>
-            <p><h2>Siiri Lehtiniemi</h2></p>
-        </div>
+          <div className="team-box">
+            <h3 className="role-title">Head of Communications</h3>
+            <div className="team-image">
+              <img src="./questionmark.webp" alt="Siiri Lehtiniemi - Head of Communications" /> 
+            </div>
+            <h3 className="member-name">Siiri Lehtiniemi</h3>
+          </div>
 
-                <div className="team-box">
-            <h2>CMO</h2>
-        <div className="team-image">
-            <img src="./questionmark.png"/> 
-        </div>
-            <p><h2>Sonja Venäläinen</h2></p>
-        </div>
+          <div className="team-box">
+            <h3 className="role-title">CMO</h3>
+            <div className="team-image">
+              <img src="./questionmark.webp" alt="Sonja Venäläinen - CMO" /> 
+            </div>
+            <h3 className="member-name">Sonja Venäläinen</h3>
+          </div>
 
-        <div className="team-box">
-            <h2>CTO</h2>
-        <div className="team-image">
-            <img src="./questionmark.png"/> 
-        </div>
-            <p><h2>Ilmari Luukkainen</h2></p>
-        </div>
+          <div className="team-box">
+            <h3 className="role-title">CTO</h3>
+            <div className="team-image">
+              <img src="./questionmark.webp" alt="Ilmari Luukkainen - CTO" /> 
+            </div>
+            <h3 className="member-name">Ilmari Luukkainen</h3>
+          </div>
       
-    </div>
-    </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
