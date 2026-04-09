@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import logo from "./assets/JUNCTIONx_logos-emblem-white.svg";
+import logo from "/JUNCTIONx_logos-emblem-white.svg";
 import "./header.css";
 
 function Header({ onNavigate }) {
