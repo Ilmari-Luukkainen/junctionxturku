@@ -5,7 +5,7 @@ import "./header.css";
 
 function Header({ onNavigate }) {
   const menuSections = [
-{
+    {
       title: "About",
       subtitle: "Learn more about Junction Turku and our mission to empower the local tech community.",
       links: [
@@ -50,8 +50,6 @@ function Header({ onNavigate }) {
 
     const onScroll = () => {
       if (!running) return;
-
-      // When menu is expanded, keep header fully visible
       if (isExpanded) {
         header.style.transition = "";
         header.style.transform = "translateY(0px)";
@@ -61,9 +59,7 @@ function Header({ onNavigate }) {
         return;
       }
 
-      // Disable CSS transition while syncing transform to scroll
       header.style.transition = "none";
-
       const currentY = window.scrollY;
       const delta = currentY - lastScrollYRef.current;
       lastScrollYRef.current = currentY;
@@ -71,7 +67,6 @@ function Header({ onNavigate }) {
       const height = header.offsetHeight || 100;
       headerOffsetRef.current = Math.min(Math.max(headerOffsetRef.current + delta, 0), height);
 
-      // Always fully visible at page top
       if (currentY === 0) {
         headerOffsetRef.current = 0;
       }
@@ -81,8 +76,6 @@ function Header({ onNavigate }) {
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-
-    // ensure visible on mount
     header.style.transform = "translateY(0px)";
 
     return () => {
@@ -99,9 +92,7 @@ function Header({ onNavigate }) {
   };
 
   useLayoutEffect(() => {
-    if (!menuPanelRef.current) {
-      return undefined;
-    }
+    if (!menuPanelRef.current) return undefined;
 
     gsap.set(menuPanelRef.current, {
       autoAlpha: 0,
@@ -119,19 +110,12 @@ function Header({ onNavigate }) {
     });
 
     menuTimelineRef.current = tl;
-
-    return () => {
-      tl.kill();
-      menuTimelineRef.current = null;
-    };
+    return () => { tl.kill(); };
   }, []);
 
   useEffect(() => {
     const onClickOutside = (event) => {
-      if (!isExpanded || !menuShellRef.current) {
-        return;
-      }
-
+      if (!isExpanded || !menuShellRef.current) return;
       if (!menuShellRef.current.contains(event.target)) {
         setIsMenuOpen(false);
         menuTimelineRef.current?.eventCallback("onReverseComplete", () => {
@@ -140,25 +124,18 @@ function Header({ onNavigate }) {
         menuTimelineRef.current?.reverse();
       }
     };
-
     document.addEventListener("mousedown", onClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", onClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", onClickOutside);
   }, [isExpanded]);
 
   const toggleMenu = () => {
-    if (!menuTimelineRef.current) {
-      return;
-    }
-
+    if (!menuTimelineRef.current) return;
     if (!isExpanded) {
       setIsMenuOpen(true);
       setIsExpanded(true);
       menuTimelineRef.current.play(0);
       return;
     }
-
     setIsMenuOpen(false);
     menuTimelineRef.current.eventCallback("onReverseComplete", () => {
       setIsExpanded(false);
@@ -167,43 +144,35 @@ function Header({ onNavigate }) {
   };
 
   const setMenuItemRef = (index) => (element) => {
-    if (element) {
-      menuItemsRef.current[index] = element;
-    }
+    if (element) menuItemsRef.current[index] = element;
   };
 
-  // Countdown to 16 October 2026
   useEffect(() => {
-    const target = new Date(2026, 9, 16, 0, 0, 0); // October is month 9 (0-based)
-
+    const target = new Date(2026, 9, 16, 0, 0, 0);
     const updateCountdown = () => {
       const now = new Date();
       let diff = target - now;
       if (diff < 0) diff = 0;
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-      setTimeLeft({ days, hours, minutes, seconds });
+      setTimeLeft({
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((diff / (1000 * 60)) % 60),
+        seconds: Math.floor((diff / 1000) % 60)
+      });
     };
-
     updateCountdown();
-    const countdownInterval = setInterval(updateCountdown, 1000);
-
-    return () => clearInterval(countdownInterval);
+    const interval = setInterval(updateCountdown, 1000);
+    return () => clearInterval(interval);
   }, []);
 
-  const isCountdownActive =
-    timeLeft.days > 0 ||
-    timeLeft.hours > 0 ||
-    timeLeft.minutes > 0 ||
-    timeLeft.seconds > 0;
+  const isCountdownActive = timeLeft.days > 0 || timeLeft.hours > 0 || timeLeft.minutes > 0 || timeLeft.seconds > 0;
 
   return (
     <header ref={headerRef} className="header">
       <div className="header-left">
+        {/* Muutettu href muotoon #/ */}
         <a
-          href="/"
+          href="#/"
           onClick={(event) => {
             event.preventDefault();
             navigate('/');
@@ -229,7 +198,6 @@ function Header({ onNavigate }) {
           onClick={toggleMenu}
           aria-label={isMenuOpen ? "Sulje valikko" : "Avaa valikko"}
           aria-expanded={isMenuOpen}
-          aria-controls="header-menu"
         >
           <span className="header-hamburger-line" />
           <span className="header-hamburger-line" />
@@ -238,9 +206,6 @@ function Header({ onNavigate }) {
         <nav
           id="header-menu"
           className={`header-dropdown ${isExpanded ? "open" : ""}`}
-          role="navigation"
-          aria-label="Päävalikko"
-          aria-hidden={!isExpanded}
           ref={menuPanelRef}
         >
           {menuSections.map((section, sectionIndex) => (
@@ -250,41 +215,41 @@ function Header({ onNavigate }) {
 
               <div className="header-menu-links">
                 {section.links.map((link) => {
-                  const isExternal = /^(https?:)?\/\//.test(link.path) || link.path.startsWith("mailto:") || link.path.startsWith("tel:");
-                  const isHash = link.path && link.path.startsWith('#');
+                  const isExternal = /^(https?:)?\/\//.test(link.path);
+                  
                   return (
                     <a
                       key={link.path}
-                      href={link.path}
+                      // Lisätään # sisäisille linkeille hrefiin, jotta hiiren kakkospainike/uusi välilehti toimii
+                      href={isExternal ? link.path : `#${link.path}`}
                       {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                       onClick={(event) => {
                         if (isExternal) return;
+                        event.preventDefault();
 
-                        if (isHash || link.path.includes('#')) {
-                          event.preventDefault();
+                        // Katsotaan onko linkissä ankkuri (esim. /#faq)
+                        if (link.path.includes('#')) {
+                          const [pathPart, hashPart] = link.path.split('#');
+                          // Jos ollaan jo kyseisellä sivulla (esim. etusivulla), skrollataan suoraan
+                          const currentPath = window.location.hash.replace('#', '').split('#')[0] || '/';
                           
-                          const isActuallyOnHomePage = window.location.pathname === '/' || window.location.pathname === '';
-                          
-                          if (isActuallyOnHomePage) {
-                            const hash = link.path.includes('#') ? link.path.split('#')[1] : link.path.replace('#', '');
-                            const el = document.getElementById(hash);
+                          if (currentPath === pathPart || (pathPart === '/' && currentPath === '')) {
+                            const el = document.getElementById(hashPart);
                             if (el) {
-                              const top = el.getBoundingClientRect().top + window.scrollY;
-                              window.scrollTo({ top, behavior: 'smooth' });
+                              el.scrollIntoView({ behavior: 'smooth' });
                             }
                           } else {
-                            navigate(link.path); 
+                            // Muuten navigoidaan koko polkuun (App.jsx hoitaa skrollauksen latauksen jälkeen)
+                            navigate(link.path);
                           }
-
-                          setIsMenuOpen(false);
-                          menuTimelineRef.current?.reverse();
-                          setTimeout(() => setIsExpanded(false), 300);
-                          return;
+                        } else {
+                          navigate(link.path);
                         }
 
-  event.preventDefault();
-  navigate(link.path);
-}}
+                        setIsMenuOpen(false);
+                        menuTimelineRef.current?.reverse();
+                        setTimeout(() => setIsExpanded(false), 300);
+                      }}
                     >
                       {link.label}
                     </a>
