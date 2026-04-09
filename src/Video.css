@@ -1,60 +1,43 @@
-/* Keskittää videon sivulla */
 .video-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
+    position: relative;
+    width: 90%;
+    max-width: 85%;
+    margin: 40px auto;
+    aspect-ratio: 16 / 9; /* JunctionX-videon kuvasuhde */
+    overflow: hidden;
+    border-radius: 20px;
+    background: black;
 }
 
 .custom-video {
-    /* Määritellään leveys */
-    width: 90%;
-    max-width: 90%;
+    position: absolute;
+    /* Pakotetaan video selkeästi suuremmaksi kuin säiliö (120% leveys/korkeus) */
+    width: 110%; 
+    height: 110%;
     
-    /* TÄRKEÄ: iFrame tarvitsee kuvasuhteen, jotta se ei näy pienenä neliönä */
-    aspect-ratio: 16 / 9; 
-    height: auto;
-    
-    /* Ulkoasu alkuperäisen mukaan */
-    border-radius: 12px;
-    max-height: 80vh;
-    padding-top: 10svh;
-    
-    /* Poistetaan iframen oletusreunat */
+    /* Keskitetään video ja käytetään isompaa scale-arvoa */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2); 
+
     border: none;
-    outline: none;
-
-    /* Estetään interaktio (jos haluat videon olevan vain taustalla) */
+    display: block;
+    object-fit: cover;
     pointer-events: none;
-    transition: none;
 
-    /* Alkuperäinen hieno maski-efektisi (liukuvärjätty häivytys) */
+    /* Maski häivyttää loputkin mahdolliset reunat */
     mask-image: linear-gradient(
-        to bottom,
+        to bottom, 
         transparent 0%, 
-        rgba(0, 0, 0, 0.6) 10%, 
-        black 25%,            
-        black 75%,            
-        rgba(0, 0, 0, 0.6) 90%, 
+        black 20%, 
+        black 80%, 
         transparent 100%
     );
     -webkit-mask-image: linear-gradient(
-        to bottom,
+        to bottom, 
         transparent 0%, 
-        rgba(0, 0, 0, 0.6) 10%, 
-        black 25%, 
-        black 75%, 
-        rgba(0, 0, 0, 0.6) 90%, 
+        black 20%, 
+        black 80%, 
         transparent 100%
     );
-}
-
-/* Valinnainen: jos haluat että video skaalautuu mobiilissa paremmin */
-@media (max-width: 768px) {
-    .custom-video {
-        width: 100%;
-        max-width: 85%;
-        border-radius: 0; /* Mobiilissa usein siistimpi ilman reunoja */
-    }
 }
