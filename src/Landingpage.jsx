@@ -28,9 +28,9 @@ export default function Landingpage() {
           animated={true}
           colors={['#df1bae', '#2aef61', '#2aef61']}
         >
-          <div style={{ padding: '0px' }}>
+          {/* <div style={{ padding: '0px' }}>
             <button className="register-button">Register</button>
-          </div>
+          </div> */}
           </BorderGlow>
       </div>
       <div className="bottom-bar">

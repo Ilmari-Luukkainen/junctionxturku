@@ -118,7 +118,7 @@ function App() {
             <div className="blur-overlay"></div>
             <Video /> 
             <ChallengeBlocks onNavigate={navigateTo}/>
-            <Partners />
+            {/* <Partners /> */}
             <InfoCards />
             <FAQ />
           </section>
