@@ -15,7 +15,6 @@ import About from './About.jsx'
 const routes = {
   '/': 'homepage',
   '/challenges': 'challenges',
-  '/edit': 'edit',
   '/about': 'about'
 }
 
@@ -131,12 +130,6 @@ function App() {
           </section>
         )}
 
-        {activeSection === 'edit' && (
-          <section id="edit">
-            <h2>Muokkaa</h2>
-            <p>Täällä näkyy muokkausmahdollisuus.</p>
-          </section>
-        )}
 
         {activeSection === 'about' && (
           <section id="about">
