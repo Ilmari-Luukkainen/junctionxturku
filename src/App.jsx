@@ -12,7 +12,6 @@ import ChallengeBlocks from './ChallengeBlocks.jsx'
 import ChallengesPage from './ChallengePage.jsx'
 import About from './About.jsx'
 
-
 const routes = {
   '/': 'homepage',
   '/challenges': 'challenges',
@@ -20,33 +19,45 @@ const routes = {
   '/about': 'about'
 }
 
-const resolvePath = (path) => {
-  const cleanPath = path.split('#')[0]; 
-  return routes[cleanPath] ?? 'homepage';
+// Apufunktio, joka päättelee nykyisen sivun hashin perusteella
+const resolvePath = () => {
+  // Haetaan hash (esim. "#/challenges") ja poistetaan ensimmäinen "#"
+  // Jos hashia ei ole, oletus on "/"
+  const currentHash = window.location.hash.replace('#', '') || '/';
+  
+  // Jos hash sisältää ankkurin (esim. #/homepage#faq), otetaan vain reittiosa
+  const pathPart = currentHash.split('#')[0];
+  
+  return routes[pathPart] ?? 'homepage';
 };
+
 function App() {
-  const [activeSection, setActiveSection] = useState(() => resolvePath(location.pathname))
+  // Alustetaan tila suoraan osoiterivin hashista
+  const [activeSection, setActiveSection] = useState(() => resolvePath())
   const [showTop, setShowTop] = useState(false);
 
-  const renderView = (path) => {
-    setActiveSection(resolvePath(path))
+  const renderView = () => {
+    setActiveSection(resolvePath())
   }
 
   const navigateTo = (path) => {
-    history.pushState(null, '', path)
-    renderView(path)
+    // Navigointi tapahtuu muuttamalla hashia, jolloin GitHub Pages pysyy index.html-sivulla
+    window.location.hash = path;
   }
 
   useEffect(() => {
-    const onPopState = () => {
-      renderView(location.pathname)
+    const onHashChange = () => {
+      renderView()
     }
 
-    window.addEventListener('popstate', onPopState)
-    renderView(location.pathname)
+    // Kuunnellaan hashin muuttumista (toimii back-nappulalla ja navigateTo-funktiolla)
+    window.addEventListener('hashchange', onHashChange)
+    
+    // Varmistetaan oikea näkymä ladattaessa
+    renderView()
 
     return () => {
-      window.removeEventListener('popstate', onPopState)
+      window.removeEventListener('hashchange', onHashChange)
     }
   }, [])
 
@@ -61,37 +72,41 @@ function App() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Scrollaus-logiikka haasteiden ankkureille
   useEffect(() => {
-  if (activeSection === 'challenges' && window.location.hash) {
-    setTimeout(() => {
-      const id = window.location.hash.replace('#', '');
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100); 
-  }
-}, [activeSection]); 
+    if (activeSection === 'challenges' && window.location.hash.includes('#', 2)) {
+      setTimeout(() => {
+        const parts = window.location.hash.split('#');
+        const id = parts[parts.length - 1];
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100); 
+    }
+  }, [activeSection]); 
 
-useEffect(() => {
-  if (!window.location.hash) {
-    window.scrollTo(0, 0);
-  }
-}, [activeSection]); 
+  // Skrollaa ylös sivun vaihdossa, jos ei ole ankkuria
+  useEffect(() => {
+    // Jos hashissa on vain yksi '#' (eli reitti), skrollaa ylös
+    const hashCount = (window.location.hash.match(/#/g) || []).length;
+    if (hashCount <= 1) {
+      window.scrollTo(0, 0);
+    }
+  }, [activeSection]); 
 
-useEffect(() => {
-  if (activeSection === 'homepage' && window.location.hash === '#faq') {
-    setTimeout(() => {
-      const el = document.getElementById('faq');
-      if (el) {
-        const headerHeight = 0;
-        const top = el.getBoundingClientRect().top + window.scrollY - headerHeight;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    }, 300); 
-  }
-}, [activeSection]);
-
+  // FAQ skrollaus etusivulla
+  useEffect(() => {
+    if (activeSection === 'homepage' && window.location.hash.endsWith('#faq')) {
+      setTimeout(() => {
+        const el = document.getElementById('faq');
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      }, 300); 
+    }
+  }, [activeSection]);
 
   return (
     <>
@@ -101,7 +116,7 @@ useEffect(() => {
           <section id="homepage">
             <Background />
             <Landingpage />
-            <div class="blur-overlay"></div>
+            <div className="blur-overlay"></div>
             <Video /> 
             <ChallengeBlocks onNavigate={navigateTo}/>
             <Partners />
@@ -128,26 +143,23 @@ useEffect(() => {
             <About />
           </section>
         )}
+      </main>
 
-        </main>
+      {/* Back to top button */}
+      {typeof window !== 'undefined' && (
+        <button
+          className={`back-to-top ${showTop ? 'visible' : ''}`}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Back to top"
+        >
+          <span className="back-to-top-label">TOP</span>
+          <span className="back-to-top-arrow">▲</span>
+        </button>
+      )}
 
-        {/* Back to top button (mobile only) */}
-        {typeof window !== 'undefined' && (
-          <button
-            className={`back-to-top ${showTop ? 'visible' : ''}`}
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            aria-label="Back to top"
-          >
-            <span className="back-to-top-label">TOP</span>
-            <span className="back-to-top-arrow">▲</span>
-          </button>
-        )}
-
-        <Footer />
-       
+      <Footer />
     </>
-    
-    )
+  )
 }
 
 export default App
