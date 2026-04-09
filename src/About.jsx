@@ -11,7 +11,7 @@ const About = () => {
         <header className="info-header">
           <div className="accent-line"></div>
           <h1>MEET THE TEAM </h1>
-          <p className="info-subtitle">turkuhackjunction@gmail.com</p>
+          <p className="info-subtitle">contact@junctionxturku.com</p>
         </header>
 
 
