@@ -3,7 +3,7 @@ function Footer() {
     return(
         <div className="footer">
             <div className="footer-socials">
-                <a className="social-link icon-swap" href="https://www.instagram.com/junctionxturku?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
+                <a className="social-link icon-swap" href="https://www.instagram.com/junctionxturku" target="_blank" rel="noopener noreferrer">
                     <span className="icon-wrap">
                         <img className="icon icon-bw" src="/instagram-logo-grey.png" alt="Instagram" />
                         <img className="icon icon-color" src="/instagram-logo.png" alt="" aria-hidden="true" />
@@ -17,7 +17,7 @@ function Footer() {
                     </span>
                     <span>@JunktionXTurku</span>
                 </a>
-                <a className="social-link icon-swap" href="https://www.x.com/" target="_blank" rel="noopener noreferrer">
+                <a className="social-link icon-swap" href="https://x.com/JunctionXTurku" target="_blank" rel="noopener noreferrer">
                     <span className="icon-wrap">
                         <img className="icon icon-bw" src="/x-logo-grey.png" alt="LinkedIn" />
                         <img className="icon icon-color" src="/x-logo.png" alt="" aria-hidden="true" />
