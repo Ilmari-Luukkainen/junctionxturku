@@ -5,7 +5,7 @@ import "./Partners.css"
 const PARTNERS = [
   { 
     name: "Junction",
-    logo: "/JUNCTIONx_logos-wordmark-white.svg"
+    logo: "./JUNCTIONx_logos-wordmark-white.svg"
   },
   { 
     name: "aaes",
@@ -13,27 +13,27 @@ const PARTNERS = [
   },
   { 
     name: "Junction",
-    logo: "/JUNCTIONx_logos-wordmark-white.svg"
+    logo: "./JUNCTIONx_logos-wordmark-white.svg"
   },
    { 
     name: "aaes",
-    logo: "/aaes.webp"
+    logo: "./aaes.webp"
   },
   { 
     name: "Junction",
-    logo: "/JUNCTIONx_logos-wordmark-white.svg"
+    logo: "./JUNCTIONx_logos-wordmark-white.svg"
   },
   { 
     name: "aaes",
-    logo: "/aaes.webp"
+    logo: "./aaes.webp"
   },
    { 
     name: "Junction",
-    logo: "/JUNCTIONx_logos-wordmark-white.svg"
+    logo: "./JUNCTIONx_logos-wordmark-white.svg"
   },
   { 
     name: "aaes",
-    logo: "/aaes.webp"
+    logo: "./aaes.webp"
   },
   
 ];
