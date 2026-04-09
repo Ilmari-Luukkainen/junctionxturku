@@ -58,6 +58,12 @@
   }
 }
 
+.info-link {
+  text-decoration: none; /* Poistaa alleviivauksen */
+  color: inherit;        /* Pitää tekstin samanvärisenä kuin muu sisältö */
+  transition: opacity 0.2s ease;
+}
+
 #center {
   display: flex;
   flex-direction: column;

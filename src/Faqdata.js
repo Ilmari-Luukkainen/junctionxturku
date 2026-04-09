@@ -27,8 +27,8 @@ export const questions = [
     },
     {
         id: 6,
-        title: "How do I register?",
-        info: "You can register for JunctionXTurku through our official website. Registration typically opens a few months before the event, so keep an eye out for announcements!"
+        title: "How can I become a sponsor or partner?",
+        info: "If you're interested in sponsoring or partnering with JunctionXTurku, please reach out to us through our email contact@junctionxturku.com. We would love to discuss potential collaboration opportunities!"
     },
     {
         id: 7,
@@ -54,11 +54,6 @@ export const questions = [
         id: 11,
         title: "What are the prizes for the winners?",
         info: "We have exciting prizes for the winning teams, including cash rewards, gadgets, and opportunities to collaborate with industry partners. Keep an eye on our website for more details!"
-    },
-    {
-        id: 12,
-        title: "How can I become a sponsor or partner?",
-        info: "If you're interested in sponsoring or partnering with JunctionXTurku, please reach out to us through our contact page on the website. We would love to discuss potential collaboration opportunities!"
     },
     {
         id: 13,
