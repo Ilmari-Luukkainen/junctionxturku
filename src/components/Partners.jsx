@@ -8,36 +8,32 @@ const PARTNERS = [
     logo: "/JUNCTIONx_logos-wordmark-white.svg"
   },
   { 
-    name: "Junction",
-    logo: "/JUNCTIONx_logos-wordmark-white.svg"
+    name: "aaes",
+    logo: "/aaes.webp"
   },
   { 
     name: "Junction",
     logo: "/JUNCTIONx_logos-wordmark-white.svg"
   },
    { 
-    name: "Junction",
-    logo: "/JUNCTIONx_logos-wordmark-white.svg"
+    name: "aaes",
+    logo: "/aaes.webp"
   },
   { 
     name: "Junction",
     logo: "/JUNCTIONx_logos-wordmark-white.svg"
   },
   { 
-    name: "Junction",
-    logo: "/JUNCTIONx_logos-wordmark-white.svg"
+    name: "aaes",
+    logo: "/aaes.webp"
   },
    { 
     name: "Junction",
     logo: "/JUNCTIONx_logos-wordmark-white.svg"
   },
   { 
-    name: "Junction",
-    logo: "/JUNCTIONx_logos-wordmark-white.svg"
-  },
-  { 
-    name: "Junction",
-    logo: "/JUNCTIONx_logos-wordmark-white.svg"
+    name: "aaes",
+    logo: "/aaes.webp"
   },
   
 ];

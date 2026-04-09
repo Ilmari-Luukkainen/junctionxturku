@@ -57,6 +57,10 @@
   min-width: 180px;
 }
 
+.partner-card img[src*="aaes"] {
+  filter: brightness(0) invert(1);
+}
+
 @keyframes spin {
   from {
     transform: translateX(0);
