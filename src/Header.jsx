@@ -100,7 +100,7 @@ function Header({ onNavigate }) {
 
   // Countdown-ajastin
   useEffect(() => {
-    const target = new Date(2026, 9, 16, 0, 0, 0);
+    const target = new Date(2026, 10, 16, 0, 0, 0);
     const updateCountdown = () => {
       const now = new Date();
       let diff = target - now;
