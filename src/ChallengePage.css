@@ -33,13 +33,13 @@
 .top-glow {
   top: -20%;
   left: -10%;
-  background: radial-gradient(circle, #8b5cf6, transparent);
+  background: radial-gradient(circle, #df1bae, transparent);
 }
 
 .bottom-glow {
   bottom: -10%;
   right: -5%;
-  background: radial-gradient(circle, #d946ef, transparent);
+  background: radial-gradient(circle, #df1bae, transparent);
 }
 
 
@@ -60,7 +60,7 @@
 .accent-line {
   width: 40px;
   height: 4px;
-  background-color: #a855f7;
+  background-color: #df1bae;
   margin-bottom: 20px;
 }
 
@@ -75,7 +75,7 @@
 }
 
 .text-highlight {
-  color: #a855f7;
+  color: #df1bae;
 }
 
 .subtitle {
@@ -99,7 +99,7 @@
 
 .step-num {
   font-family: 'Lato Normal';
-  color: #a855f7;
+  color: #df1bae;
   font-size: 0.9rem;
   font-weight: bold;
 }

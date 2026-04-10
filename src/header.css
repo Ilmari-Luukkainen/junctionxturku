@@ -62,7 +62,7 @@
   padding: 12px 45px;
   
   border-radius: 12px;
-  border: 2px solid rgba(217, 70, 239, 0.3); /* Lisätty hienovarainen pinkki reuna teeman mukaan */
+  border: 2px solid #df1bae; /* Lisätty hienovarainen pinkki reuna teeman mukaan */
   
   /* Typografia-optimointi */
   letter-spacing: 2px;
@@ -71,8 +71,8 @@
   
   /* Efektit */
   backdrop-filter: blur(12px);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), 
-              0 0 15px rgba(217, 70, 239, 0.1); /* Kevyt pinkki hohde */
+  box-shadow: 0 0 30px #df1bae, 
+              0 0 15px #df1bae; /* Kevyt pinkki hohde */
   
   transition: all 0.3s ease;
 }
@@ -202,7 +202,7 @@
 }
 
 .header-dropdown a:hover {
-  background: #d946ef; /* Pinkki korostus */
+  background: #df1bae; /* Pinkki korostus */
   transform: translateX(5px);
 }
 

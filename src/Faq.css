@@ -76,7 +76,7 @@
   border-radius: 4px;
   font-size: 1rem;
   line-height: 1.6;
-  border-left: 3px solid rgba(88, 28, 135, 0.8);
+  border-left: 3px solid #df1bae;
   backdrop-filter: blur(4px);
   font-family: 'Lato', sans-serif;
 }
