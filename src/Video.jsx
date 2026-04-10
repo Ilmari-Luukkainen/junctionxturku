@@ -14,7 +14,7 @@ export default function Video() {
                 preload="auto"
             >
                 <source src={brandVideo} type="video/mp4" />
-                Selaimesi ei tue videon toistoa.
+                Your browser does not support the video tag.
             </video>
         </div>
     );
