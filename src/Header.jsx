@@ -11,6 +11,7 @@ function Header({ onNavigate }) {
       links: [
         { label: "Our Team", path: "/about" },
         { label: "FAQ", path: "/#faq" },
+        { label: "Partners", path: "/partners" },
       ],
     },
     {

@@ -4,9 +4,7 @@ import './About.css';
 const About = () => {
   return (
     <section className="info-container">
-      <div className="bg-glow top-glow" aria-hidden="true"></div>
       <div className="bg-glow bottom-glow" aria-hidden="true"></div>
-
       <div className="info-content">
         <header className="info-header">
           <div className="accent-line"></div>

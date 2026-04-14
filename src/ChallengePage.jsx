@@ -6,8 +6,8 @@ const ChallengePage = () => {
     /* SEO: Main-tagi kertoo hakukoneelle sivun pääasiallisen sisällön */
     <main className="info-container">
       {/* Koriste-elementit piilotettu ruudunlukijoilta tehokkuuden ja saavutettavuuden vuoksi */}
-      <div className="bg-glow top-glow" aria-hidden="true"></div>
       <div className="bg-glow bottom-glow" aria-hidden="true"></div>
+
 
       <div className="info-content">
         <header className="info-header">

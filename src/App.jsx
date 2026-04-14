@@ -11,18 +11,21 @@ import Video from './Video.jsx'
 import ChallengeBlocks from './ChallengeBlocks.jsx'
 import ChallengesPage from './ChallengePage.jsx'
 import About from './About.jsx'
+import PartnersPage from './PartnersPage.jsx'
 
 const routes = {
   '/': 'homepage',
   '/challenges': 'challenges',
-  '/about': 'about'
+  '/about': 'about',
+  '/partners': 'partners'
 }
 
 // SEO-otsikot eri sivuille
 const pageTitles = {
   homepage: 'JunctionX Turku 2026 | The Ultimate Tech Hackathon',
   challenges: 'Challenges | JunctionX Turku 2026',
-  about: 'About Us | JunctionX Turku 2026'
+  about: 'About Us | JunctionX Turku 2026',
+  partners: 'Our Partners | JunctionX Turku 2026'
 }
 
 const resolvePath = () => {
@@ -118,6 +121,12 @@ function App() {
         {activeSection === 'about' && (
           <article id="about">
             <About />
+          </article>
+        )}
+
+        {activeSection === 'partners' && (
+          <article id="partners">
+            <PartnersPage />
           </article>
         )}
         
