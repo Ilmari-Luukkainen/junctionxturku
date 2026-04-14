@@ -6,13 +6,18 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://junctionxturku.com/#challenges</loc>
+    <loc>https://junctionxturku.com/#/challenges</loc>
     <lastmod>2026-04-10</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://junctionxturku.com/#about</loc>
+    <loc>https://junctionxturku.com/#/about</loc>
     <lastmod>2026-04-10</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://junctionxturku.com/#/partners</loc>
+    <lastmod>2026-04-14</lastmod>
     <priority>0.5</priority>
   </url>
 </urlset>
