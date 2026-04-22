@@ -53,6 +53,10 @@
   filter: brightness(0) invert(1);
 }
 
+.partner-card img[src*="TuKYry"] {
+  filter: brightness(0) invert(1);
+}
+
 .partner-card img {
   pointer-events: none; /* Estää vahinkovedon kuvasta */
   object-fit: contain;

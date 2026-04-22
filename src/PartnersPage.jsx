@@ -24,7 +24,10 @@ const PartnersPage = () => {
         <div className="value-grid">
           <div className="value-card highlight-card">
             <div className="value-icon">
-              <img src="/people-svgrepo-com.svg" alt="People" className="partner-icon-img" />            
+              {/* Harmaa versio */}
+              <img src="/people-svgrepo-com.svg" alt="" className="partner-icon-img icon-base" />
+              {/* Pinkki versio (tallenna se tällä nimellä tai vaihda polku) */}
+              <img src="/people-svgrepo-com-pink.svg" alt="People" className="partner-icon-img icon-hover" />            
             </div>
             <h3>Top Talent</h3>
             <p>Access developers, designers, and innovators from the world's best universities.</p>
@@ -32,7 +35,8 @@ const PartnersPage = () => {
 
           <div className="value-card highlight-card">
             <div className="value-icon">
-              <img src="/flash-1007-svgrepo-com.svg" alt="Flash" className="partner-icon-img" />            
+              <img src="/flash-1007-svgrepo-com.svg" alt="" className="partner-icon-img icon-base" />
+              <img src="/flash-1007-svgrepo-com-pink.svg" alt="Flash" className="partner-icon-img icon-hover" />            
             </div>
             <h3>Innovation</h3>
             <p>Set real challenges and get fresh solutions built with your technology in just 48 hours.</p>
@@ -40,7 +44,8 @@ const PartnersPage = () => {
 
           <div className="value-card highlight-card">
             <div className="value-icon">
-              <img src="/handshake-svgrepo-com.svg" alt="Handshake" className="partner-icon-img" />            
+              <img src="/handshake-svgrepo-com.svg" alt="" className="partner-icon-img icon-base" />
+              <img src="/handshake-svgrepo-com-pink.svg" alt="Handshake" className="partner-icon-img icon-hover" />            
             </div>
             <h3>Brand Exposure</h3>
             <p>Position your brand in front of the next generation of tech leaders and decision-makers.</p>
@@ -68,7 +73,7 @@ const PartnersPage = () => {
               </div>
             </div>
             <div className="person-links">
-              <a href="mailto:eino.vuopala@hackjunction.com">eino.vuopala@hackjunction.com <span>→</span></a>
+              <a href="mailto:eino@hackjunction.com">eino@hackjunction.com <span>→</span></a>
               <a href="https://www.linkedin.com/in/eino-vuopala-2bb452345/" target="_blank" rel="noreferrer">LinkedIn <span>→</span></a>
             </div>
           </div>

@@ -23,7 +23,7 @@ export const questions = [
     {
         id: 5,
         title: "When is JunctionXTurku?",
-        info: "JunctionXTurku is held annually in Turku, Finland. The exact dates are announced closer to the event."
+        info: "JunctionXTurku is held annually in Turku, Finland. This year's event is scheduled for 16-18 October 2026."
     },
     {
         id: 6,
@@ -43,7 +43,7 @@ export const questions = [
     {
         id: 9,
         title: "Is there a participation fee?",
-        info: "Participation in JunctionXTurku is free of charge. We cover the costs for all participants, including meals and materials."
+        info: "Participation in JunctionXTurku is free of charge."
     },
     {
         id: 10,

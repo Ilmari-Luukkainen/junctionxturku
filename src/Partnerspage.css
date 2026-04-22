@@ -17,7 +17,6 @@
   overflow-x: hidden;
 }
 
-/* Apuluokka pinkille korostustekstille */
 .accent-text {
   color: #df1bae;
   font-family: 'Courier New', Courier, monospace;
@@ -51,7 +50,7 @@
   max-width: 800px;
 }
 
-/* 3. WHY PARTNER SECTION (Kortit) */
+/* 3. WHY PARTNER SECTION */
 .partners-why {
   max-width: 1200px;
   width: 100%;
@@ -80,7 +79,6 @@
   cursor: pointer;
 }
 
-/* Kortin hover-tila */
 .value-card:hover {
   background: rgba(255, 255, 255, 0.05);
   transform: translateY(-8px);
@@ -92,38 +90,50 @@
   box-shadow: inset 0 0 20px rgba(223, 27, 174, 0.02);
 }
 
-/* --- IKONIEN TYYLIT JA HOVER-EFEKTI --- */
+/* --- IKONIEN TYYLIT (Kahden kuvan tekniikka) --- */
 .value-icon {
   width: 48px;
   height: 48px;
   margin-bottom: 25px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: filter 0.3s ease;
 }
 
 .partner-icon-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  
-  /* Oletus: Harmaa ja hieman haalistunut */
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.icon-base {
   filter: grayscale(100%) brightness(0.7);
   opacity: 0.5;
-  transition: filter 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+  z-index: 1;
 }
 
-/* Kun kortin päälle mennään hiirellä */
-.value-card:hover .partner-icon-img {
-  /* Muutetaan tarkaksi pinkiksi (#df1bae) */
-  filter: brightness(0) saturate(100%) invert(20%) sepia(87%) saturate(4156%) hue-rotate(299deg) brightness(92%) contrast(92%);
-  opacity: 1;
-  transform: scale(1.1);
+.icon-hover {
+  opacity: 0;
+  z-index: 2;
 }
 
-.value-card:hover .value-icon {
-  filter: drop-shadow(0 0 10px rgba(223, 27, 174, 0.5));
+/* HOVER-EFEKTI TIETOKONEELLA */
+@media (hover: hover) {
+  .value-card:hover .icon-hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  .value-card:hover .icon-base {
+    opacity: 0;
+  }
+  .value-card:hover .value-icon {
+    filter: drop-shadow(0 0 10px rgba(223, 27, 174, 0.5));
+  }
 }
 
 .value-card h3 {
@@ -231,55 +241,41 @@
   color: #ffffff;
 }
 
-.person-links span {
-  color: #505050;
+/* 5. VÄRIMUUTOS ALLE 1024px (Ikonit pinkiksi, asettelu pysyy vielä ennallaan) */
+@media (max-width: 1024px) {
+  .icon-base {
+    display: none !important;
+  }
+  .icon-hover {
+    opacity: 1 !important;
+    position: relative;
+  }
+  .value-icon {
+    filter: drop-shadow(0 0 8px rgba(223, 27, 174, 0.4)) !important;
+  }
+  .partners-hero{
+    padding-top: 25svh;
+  }
+  .partners-contact{
+    padding-top: 25svh;
+  }
+  .contact-description {
+    padding-bottom: 15svh;
+  }
 }
 
-/* 5. MOBIILI JA RESPONSIIIVISUUS */
+/* 6. ASETTELUN MUUTOS ALLE 768px (Puhelinasettelu) */
 @media (max-width: 768px) {
   .partners-page { padding: 100px 15px 40px 15px; }
-  .partners-hero { 
+  .partners-hero, .partners-why, .partners-contact { 
     padding-top: 15svh; 
+    align-items: center; 
+    text-align: center; 
   }
-  .partners-why{
-    padding-top: 20svh;
-  }
-  .partners-contact{
-    padding-top: 20svh;
-  }
-  .contact-description{
-    padding-bottom: 10svh;
-  }
-  .contact-description { max-width: 100%; }
+  .contact-description { padding-bottom: 10svh; max-width: 100%; }
   .contact-grid { grid-template-columns: 1fr; }
   .person-header { flex-direction: column; text-align: center; }
-  .value-grid, .partners-why, .partners-contact { align-items: center; text-align: center; }
   .person-links a { justify-content: center; gap: 10px; }
+  .value-grid { align-items: center; text-align: center; }
   .value-icon { margin: 0 auto 20px auto; }
-  .partner-icon-img {
-    /* Pakotetaan pinkki väri päälle */
-    filter: brightness(0) saturate(100%) invert(20%) sepia(87%) saturate(4156%) hue-rotate(299deg) brightness(92%) contrast(92%) !important;
-    opacity: 1 !important;
-  }
-  
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .partners-hero { 
-    padding-top: 20svh; }
-  .partners-why{
-    padding-top: 20svh;
-  }
-  .partners-contact{
-    padding-top: 20svh;
-  }
-  .contact-description{
-    padding-bottom: 10svh;
-  }
-  .contact-description { max-width: 80%; }
-  .partner-icon-img {
-    /* Pakotetaan pinkki väri päälle */
-    filter: brightness(0) saturate(100%) invert(20%) sepia(87%) saturate(4156%) hue-rotate(299deg) brightness(92%) contrast(92%) !important;
-    opacity: 1 !important;
-  }
 }

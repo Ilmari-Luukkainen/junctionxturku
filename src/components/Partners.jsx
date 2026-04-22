@@ -2,14 +2,18 @@ import React from 'react';
 import "./Partners.css";
 
 const PARTNERS = [
-  { name: "Junction", logo: "./JUNCTIONx_logos-wordmark-white.svg" },
+  { name: "Lovable", logo: "./lovable-light-png.webp" },
+  { name: "Redstone", logo: "./redstone.webp" },
+  { name: "Turku-AMK", logo: "./turun_amkn_logo_valkoinen_teksti.webp" },
   { name: "AAES", logo: "./aaes.webp" },
-  { name: "Junction", logo: "./JUNCTIONx_logos-wordmark-white.svg" },
+  { name: "TUKY", logo: "./TuKYry.webp" },
+  { name: "Boost", logo: "./Boost.svg" },
+  { name: "Lovable", logo: "./lovable-light-png.webp" },
+  { name: "Redstone", logo: "./redstone.webp" },
+  { name: "Turku-AMK", logo: "./turun_amkn_logo_valkoinen_teksti.webp" },
   { name: "AAES", logo: "./aaes.webp" },
-  { name: "Junction", logo: "./JUNCTIONx_logos-wordmark-white.svg" },
-  { name: "AAES", logo: "./aaes.webp" },
-  { name: "Junction", logo: "./JUNCTIONx_logos-wordmark-white.svg" },
-  { name: "AAES", logo: "./aaes.webp" },
+  { name: "TUKY", logo: "./TuKYry.webp" },
+  { name: "Boost", logo: "./Boost.svg" }
 ];
 
 // Duplikoidaan lista kerran saumatonta animaatiota varten

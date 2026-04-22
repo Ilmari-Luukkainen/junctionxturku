@@ -56,9 +56,12 @@ function Footer() {
                 <p>
                     <a href="https://hackjunction.com" rel="external">hackjunction.com</a>
                 </p>
+                
+                    
             </div>
 
             <div className="footer-copyright">
+                <p>JunctionX Turku ry<br />Y-tunnus: 3611752-6</p>
                 <p>Copyright © 2026 Junction Turku</p>
             </div>
         </footer>
