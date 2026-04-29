@@ -11,8 +11,8 @@ const About = () => {
           {/* Vaihdettu h2:ksi, koska Landingpage on jo h1. 
               Lisätty JunctionX Turku kontekstia. */}
           <h1>MEET THE TEAM</h1>
-          <a href="mailto:contact@junctionxturku.com" className="info-link">
-            <p className="info-subtitle">contact@junctionxturku.com</p>
+          <a href="mailto:info@junctionxturku.com" className="info-link">
+            <p className="info-subtitle">info@junctionxturku.com</p>
           </a> 
         </header>
 

@@ -12,12 +12,14 @@ import ChallengeBlocks from './ChallengeBlocks.jsx'
 import ChallengesPage from './ChallengePage.jsx'
 import About from './About.jsx'
 import PartnersPage from './PartnersPage.jsx'
+import GoogleVerification from './google-verification.jsx'
 
 const routes = {
   '/': 'homepage',
   '/challenges': 'challenges',
   '/about': 'about',
-  '/partners': 'partners'
+  '/partners': 'partners',
+  '/google-verification': 'google-verification'
 }
 
 // SEO-otsikot eri sivuille
@@ -25,7 +27,8 @@ const pageTitles = {
   homepage: 'JunctionX Turku 2026 | The Ultimate Tech Hackathon',
   challenges: 'Challenges | JunctionX Turku 2026',
   about: 'About Us | JunctionX Turku 2026',
-  partners: 'Our Partners | JunctionX Turku 2026'
+  partners: 'Our Partners | JunctionX Turku 2026',
+  'google-verification': 'Google Verification | JunctionX Turku 2026'
 }
 
 const resolvePath = () => {
@@ -127,6 +130,12 @@ function App() {
         {activeSection === 'partners' && (
           <article id="partners">
             <PartnersPage />
+          </article>
+        )}
+
+        {activeSection === 'google-verification' && (
+          <article id="google-verification">
+            <GoogleVerification />
           </article>
         )}
         
