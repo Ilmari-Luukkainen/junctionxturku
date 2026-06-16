@@ -21,7 +21,7 @@ const About = () => {
           <div className="team-box">
             <h3 className="role-title">Executive Director</h3>
             <div className="team-image">
-              <img src="./questionmark.webp" alt="Rafael Raoult - Executive Director of JunctionX Turku" /> 
+              <img src="./Rafael.png" alt="Rafael Raoult - Executive Director of JunctionX Turku" style={{ objectPosition: 'center -5%' }} /> 
             </div>
             <h3 className="member-name">Rafael Raoult</h3>
           </div>
@@ -37,7 +37,7 @@ const About = () => {
           <div className="team-box">
             <h3 className="role-title">Head of Operations</h3>
             <div className="team-image">
-              <img src="./questionmark.webp" alt="Akseli Hakanen - Head of Operations" /> 
+              <img src="./Naksu.png" alt="Akseli Hakanen - Head of Operations" style={{ objectPosition: 'center -5%' }}/> 
             </div>
             <h3 className="member-name">Akseli Hakanen</h3>
           </div>
@@ -45,7 +45,7 @@ const About = () => {
           <div className="team-box">
             <h3 className="role-title">Head of Partnerships</h3>
             <div className="team-image">
-              <img src="./questionmark.webp" alt="Tomi Räsänen - Head of Partnerships" /> 
+              <img src="./Tomi.png" alt="Tomi Räsänen - Head of Partnerships" style={{ objectPosition: 'center -5%' }}/> 
             </div>
             <h3 className="member-name">Tomi Räsänen</h3>
           </div>
@@ -53,15 +53,23 @@ const About = () => {
           <div className="team-box">
             <h3 className="role-title">Head of Partnerships</h3>
             <div className="team-image">
-              <img src="./questionmark.webp" alt="Eino Vuopala - Head of Partnerships" /> 
+              <img src="./Eino.png" alt="Eino Vuopala - Head of Partnerships" style={{ objectPosition: 'center -5%' }}/> 
             </div>
             <h3 className="member-name">Eino Vuopala</h3>
+          </div>
+
+            <div className="team-box">
+            <h3 className="role-title">Head of Sponsorships</h3>
+            <div className="team-image">
+              <img src="./Jun.png" alt="Jun Hyytiäinen - Head of Sponsorships" style={{ objectPosition: 'center -5%' }}/> 
+            </div>
+            <h3 className="member-name">Jun Hyytiäinen</h3>
           </div>
 
           <div className="team-box">
             <h3 className="role-title">Head of Communications</h3>
             <div className="team-image">
-              <img src="./questionmark.webp" alt="Siiri Lehtiniemi - Head of Communications" /> 
+              <img src="./Siiri.png" alt="Siiri Lehtiniemi - Head of Communications" style={{ objectPosition: 'center -5%' }}/> 
             </div>
             <h3 className="member-name">Siiri Lehtiniemi</h3>
           </div>
@@ -69,7 +77,7 @@ const About = () => {
           <div className="team-box">
             <h3 className="role-title">CMO</h3>
             <div className="team-image">
-              <img src="./questionmark.webp" alt="Sonja Venäläinen - CMO" /> 
+              <img src="./Sonja.png" alt="Sonja Venäläinen - CMO" style={{ objectPosition: 'center -5%' }} /> 
             </div>
             <h3 className="member-name">Sonja Venäläinen</h3>
           </div>
@@ -77,7 +85,7 @@ const About = () => {
           <div className="team-box">
             <h3 className="role-title">CTO</h3>
             <div className="team-image">
-              <img src="./questionmark.webp" alt="Ilmari Luukkainen - CTO" /> 
+              <img src="./Ilmari.png" alt="Ilmari Luukkainen - CTO" className='ilmari-img' style={{ objectPosition: 'center -5%' }} /> 
             </div>
             <h3 className="member-name">Ilmari Luukkainen</h3>
           </div>

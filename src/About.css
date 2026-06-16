@@ -179,3 +179,7 @@
     font-size: 1.1rem;
   }
 }
+
+.team-image img.ilmari-img {
+  object-position: center top; 
+}

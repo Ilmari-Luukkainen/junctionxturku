@@ -9,6 +9,7 @@ const PARTNERS = [
   { name: "TUKY", logo: "./TuKYry.webp" },
   { name: "Boost", logo: "./Boost.svg" },
   { name: "Monttu-Ventures", logo: "./Monttu_Ventures-kletanen.webp" },
+  { name: "BusinessTurku", logo: "./BT-pystylogo-valkoinen-RGB-390x126.png" },
   { name: "Lovable", logo: "./lovable-light-png.webp" },
   { name: "Redstone", logo: "./redstone.webp" },
   { name: "Turku-AMK", logo: "./turun_amkn_logo_valkoinen_teksti.webp" },
@@ -16,6 +17,7 @@ const PARTNERS = [
   { name: "TUKY", logo: "./TuKYry.webp" },
   { name: "Boost", logo: "./Boost.svg" },
   { name: "Monttu-Ventures", logo: "./Monttu_Ventures-kletanen.webp" },
+  { name: "BusinessTurku", logo: "./BT-pystylogo-valkoinen-RGB-390x126.png" },
 ];
 
 // Duplikoidaan lista kerran saumatonta animaatiota varten
