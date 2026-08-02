@@ -66,7 +66,7 @@ const PartnersPage = () => {
         <div className="contact-grid">
           <div className="contact-person">
             <div className="person-header">
-              <img src="./questionmark.webp" alt="Eino Vuopala" className="person-img" />
+              <img src="./Eino.png" alt="Eino Vuopala" className="person-img"/>
               <div className="person-info">
                 <span className="person-role">PARTNERSHIPS</span>
                 <h3>Eino Vuopala</h3>
@@ -80,7 +80,7 @@ const PartnersPage = () => {
 
           <div className="contact-person">
             <div className="person-header">
-              <img src="./questionmark.webp" alt="Tomi Räsänen" className="person-img" />
+              <img src="./Tomi.png" alt="Tomi Räsänen" className="person-img" />
               <div className="person-info">
                 <span className="person-role">PARTNERSHIPS</span>
                 <h3>Tomi Räsänen</h3>

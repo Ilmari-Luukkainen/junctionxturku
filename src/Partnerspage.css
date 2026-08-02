@@ -206,6 +206,7 @@
   object-fit: cover;
   background: #1a1a1a;
   border: 2px solid #df1bae;
+  object-position: 1% 1%;
 }
 
 .person-role {
