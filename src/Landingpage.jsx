@@ -47,7 +47,7 @@ export default function Landingpage() {
         <div style={{ padding: '0px' }}>
           <button 
             className="register-button"
-            onClick={() => window.location.href = 'https://hackjunction.app/hackathons/junctionx-turku'}
+            onClick={() => window.location.href = 'https://hackjunction.app/hackathons/junctionx-turku-2026'}
             style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
           >
             <span>Register</span>
