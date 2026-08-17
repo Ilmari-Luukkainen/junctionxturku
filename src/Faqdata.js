@@ -1,3 +1,5 @@
+import { title } from "motion/react-client";
+
 // data.js
 export const questions = [
   {
@@ -64,5 +66,10 @@ export const questions = [
         id: 14,
         title: "Do I need to have coding skills to participate?",
         info: "No, you don't need to have coding skills to participate in JunctionXTurku. We welcome participants with a wide range of skills. The key is to bring your unique perspective and collaborate with others to create innovative solutions!"
-    }
+    },
+    {
+        id: 15,
+        title: "Want to volunteer?",
+        info: 'We are looking for 2 Account Managers and 13 Volunteers to help us make the event weekend run smoothly! Send your CV and a brief cover letter to rafael.raoult@hackjunction.com, and please specify whether you are applying for the Account Manager role or a general Volunteer role. \n \n Privacy Notice: We collect and process your application data (CV, cover letter and preferences) solely for managing volunteer recruitment and organizing the event. Your data is accessed only by the organization team and will be deleted once the event organization ends. You may request access, correction, or deletion of your data at any time by contacting rafael.raoult@hackjunction.com.'
+    },
 ];
