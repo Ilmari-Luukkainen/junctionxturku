@@ -134,6 +134,14 @@
   margin: 0;
 }
 
+.title-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto; /* Keskittää kuvan kortin sisälle */
+}
+
 /* TABLETTI JA PIENET LÄPPÄRIT */
 @media (max-width: 1200px) {
   .challenge-grid {
