@@ -57,11 +57,11 @@ const ChallengePage = () => {
         </article>
 
         <article className="challenge-box" id="innovation-track">
-          <h2>INNOVATION TRACK</h2>
-          <div className="challenge-image">
+          <h2>If insurance</h2>
+          <div className="challenge-image-if">
             <img 
-              src="./questionmark.webp" 
-              alt="Innovation track mystery placeholder" 
+              src="./If.svg" 
+              alt="If challenge" 
               loading="lazy"
               decoding="async"
               width="800"
@@ -69,7 +69,7 @@ const ChallengePage = () => {
             /> 
           </div>
           <div className="challenge-description">
-            <p>Focus on real-world impact. We're bringing together the brightest minds to solve complex problems with cutting-edge tech.</p>
+            <p>If is the largest insurance company in the Nordics, helping around 4.6 million customers protect what matters most, from homes and cars to businesses and large enterprises. Powering their insurance work is a large technology organisation, the If Tech Community, spanning the Nordics and Baltics, and now our participants get the chance to tackle a real challenge from them during the hackathon.</p>
           </div>
         </article>
 
