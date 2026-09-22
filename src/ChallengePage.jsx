@@ -8,7 +8,6 @@ const ChallengePage = () => {
       {/* Koriste-elementit piilotettu ruudunlukijoilta tehokkuuden ja saavutettavuuden vuoksi */}
       <div className="bg-glow bottom-glow" aria-hidden="true"></div>
 
-
       <div className="info-content">
         <header className="info-header">
           <div className="accent-line" aria-hidden="true"></div>
@@ -39,20 +38,37 @@ const ChallengePage = () => {
 
         {/* SEO: Jokainen haaste on oma 'article' taginsa */}
         <article className="challenge-box" id="unlocking-soon">
-          <h2>UNLOCKING SOON</h2>
-          <div className="challenge-image">
-            {/* Performance: Mitat estävät CLS:n, lazy loading säästää kaistaa */}
+          <h2>Redstone A'Pelago</h2>
+          {/* KAKSI KUVAA RINNAKKAIN: */}
+          <div 
+            className="challenge-image-if" 
+            style={{ 
+              display: 'flex', 
+              gap: '2rem', 
+              justifyContent: 'center', 
+              alignItems: 'center',
+              flexWrap: 'wrap'
+            }}
+          >
             <img 
-              src="./questionmark.webp" 
-              alt="Coming soon mystery challenge placeholder" 
+              src="./redstone.webp" 
+              alt="Redstone Logo" 
               loading="lazy"
               decoding="async"
-              width="800"
-              height="450"
+              style={{ maxHeight: '100px', width: 'auto', objectFit: 'contain' }}
+            /> 
+            <img 
+              src="./Apelago.png" 
+              alt="Apelago Logo" 
+              loading="lazy"
+              decoding="async"
+              style={{ maxHeight: '100px', width: 'auto', objectFit: 'contain' }}
             /> 
           </div>
           <div className="challenge-description">
-            <p>We are currently finalizing the first set of technical challenges. Prepare your stack and stay tuned - the first block drops shortly.</p>
+            <p>APelago is the Baltic Sea region's leading blue economy ecosystem, connecting startups, investors, researchers and corporates across the Baltic Sea Region and beyond to build resilient blue economy businesses and restore the health of our seas.</p>
+            <br />
+            <p>Redstone is a venture capital firm investing across FinTech, Energy & Infrastructure, Health, Industrial, DeepTech, and Blue Economy, backing ambitious founders building category-leading companies. This October, they're bringing that same eye for bold ideas to the hackathon floor in Turku</p>
           </div>
         </article>
 
