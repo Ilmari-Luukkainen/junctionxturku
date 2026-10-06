@@ -16,6 +16,7 @@ const PARTNERS = [
   { name: "Apleago", logo: "./Apelago.png" },
   { name: "Sinerbychoff", logo: "./sinebrychoff.svg" },
   { name: "Rosten", logo: "./Rosten.png" },
+  { name: "kst", logo: "./kst.png" },
   { name: "Lovable", logo: "./lovable-light-png.webp" },
   { name: "Redstone", logo: "./redstone.webp" },
   { name: "Turku-AMK", logo: "./turun_amkn_logo_valkoinen_teksti.webp" },
@@ -30,6 +31,7 @@ const PARTNERS = [
   { name: "Apleago", logo: "./Apelago.png" },
   { name: "Sinerbychoff", logo: "./sinebrychoff.svg" },
   { name: "Rosten", logo: "./Rosten.png" },
+  { name: "kst", logo: "./kst.png" },
 ];
 
 // Duplikoidaan lista kerran saumatonta animaatiota varten
