@@ -20,8 +20,11 @@ const challenges = [
   },
   { 
     id: 3, 
-    title: 'MYSTERY CHALLENGE', 
-    description: 'A deep dive into AI and automation awaits. This track will test your ability to build scalable solutions under pressure.', 
+        titleImages: [
+      { src: '/tyks.png', alt: 'Tyks Logo' },
+      { src: '/mylab.svg', alt: 'Mylab Logo' }
+    ],
+    description: 'Tyks Laboratories provides laboratory services for Turku University Hospital, from all laboratory disciplines, producing test results that doctors across Southwest Finland rely on every day to make decisions about patient care.\n\nMylab Oy is the leading expert in healthcare laboratory and diagnostic information systems in the Nordics. For over 35 years, they\'ve been connecting healthcare providers, systems and data to help build a healthier society. This October, they\'re bringing that expertise to the hackathon floor in Turku.',  
     path: '/challenges#mystery-challenge' 
   }
 ];

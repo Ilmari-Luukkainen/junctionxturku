@@ -89,20 +89,40 @@ const ChallengePage = () => {
           </div>
         </article>
 
-        <article className="challenge-box" id="mystery-challenge">
-          <h2>MYSTERY CHALLENGE</h2>
-          <div className="challenge-image">
+        {/* SEO: Jokainen haaste on oma 'article' taginsa */}
+        <article className="challenge-box" id="unlocking-soon">
+          <h2>TYKS Laboratories & Mylab</h2>
+          {/* KAKSI KUVAA RINNAKKAIN: */}
+          <div 
+            className="challenge-image-if" 
+            style={{ 
+              display: 'flex', 
+              gap: '2rem', 
+              justifyContent: 'center', 
+              alignItems: 'center',
+              flexWrap: 'wrap'
+            }}
+          >
             <img 
-              src="./questionmark.webp" 
-              alt="Deep dive AI and automation mystery placeholder" 
+              src="./tyks.png" 
+              alt="Tyks Logo" 
               loading="lazy"
               decoding="async"
-              width="800"
-              height="450"
+              style={{ maxHeight: '100px', width: 'auto', objectFit: 'contain' }}
+            /> 
+            <img 
+              src="./mylab.svg" 
+              alt="Mylab Logo" 
+              loading="lazy"
+              decoding="async"
+              style={{ maxHeight: '100px', width: 'auto', objectFit: 'contain' }}
             /> 
           </div>
           <div className="challenge-description">
-            <p>A deep dive into AI and automation awaits. This track will test your ability to build scalable solutions under pressure.</p>
+            <p>Tyks Laboratories provides laboratory services for Turku University Hospital, from all laboratory disciplines, producing test results that doctors across Southwest Finland rely on every day to make decisions about patient care.
+</p>
+            <br />
+            <p>Mylab Oy is the leading expert in healthcare laboratory and diagnostic information systems in the Nordics. For over 35 years, they've been connecting healthcare providers, systems and data to help build a healthier society. This October, they're bringing that expertise to the hackathon floor in Turku.</p>
           </div>
         </article>
       </div>

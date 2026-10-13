@@ -8,7 +8,7 @@ const InfoCards = () => {
         <div className="stat-card" id="card-a1">
           {/* Vaihdettu diviksi ja lisätty selkeä luokka. 
               SEO: otsikkohierarkia säilyy puhtaana. */}
-          <div className="stat-value">To be announced</div>
+          <div className="stat-value">9000€</div>
           <span className="stat-label">Total Prize Pool</span>         
         </div>
       

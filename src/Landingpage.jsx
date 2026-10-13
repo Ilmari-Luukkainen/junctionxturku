@@ -45,14 +45,14 @@ export default function Landingpage() {
           colors={['#df1bae', '#2aef61', '#2aef61']}
         >
         <div style={{ padding: '0px' }}>
-          <button 
+          {/*<button 
             className="register-button"
             onClick={() => window.location.href = 'https://hackjunction.app/hackathons/junctionx-turku-2026'}
             style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
           >
             <span>Register</span>
             
-            {/* Ulkoisen linkin SVG-ikoni */}
+            
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
               width="16" 
@@ -68,7 +68,7 @@ export default function Landingpage() {
               <polyline points="15 3 21 3 21 9"></polyline>
               <line x1="10" y1="14" x2="21" y2="3"></line>
             </svg>
-          </button>
+          </button>*/}
         </div>
           
         </BorderGlow>
